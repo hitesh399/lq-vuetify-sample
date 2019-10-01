@@ -1,29 +1,33 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+    <component v-bind:is="layout">
+        <slot />
+    </component>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+import AdminLayout from './layouts/Admin';
+export default {
+    name: 'App',
+    props: {
+        layout: String
+    },
+    components: {
+        AdminLayout
+    },
+    created: function() {
+        this.$axios('site-general-config').then(response => {
+            this.$store.dispatch('updateAppKey', {
+                key: 'configs',
+                value: response.data.data
+            });
+        });
+
+        this.$axios('device/user').then(response => {
+            this.$store.dispatch('updateAppKey', {
+                key: 'device_users',
+                value: response.data.device_users
+            });
+        });
     }
-  }
-}
-</style>
+};
+</script>

@@ -6,8 +6,8 @@ if (!fs.existsSync(__dirname + '/.env')) {
 }
 const environment = fs.readFileSync(__dirname + '/.env', 'utf8').toString().trim();
 
-function getPortalConfig(portal, environment)  {
-	
+function getPortalConfig(portal, environment) {
+
 
 	// Geting environment Veriables
 	const environment_buff = fs.readFileSync(__dirname + '/.env.' + environment, 'utf8');
@@ -15,9 +15,9 @@ function getPortalConfig(portal, environment)  {
 
 	// const args = minimist(process.argv.slice(2));
 	// const portal = args.portal;
-	const envFileName =  portal ? '.env.' + portal + '.' + environment : '.env.' + environment;
+	const envFileName = portal ? '.env.' + portal + '.' + environment : '.env.' + environment;
 
-	if(!fs.existsSync(__dirname + '/' + envFileName)) {
+	if (!fs.existsSync(__dirname + '/' + envFileName)) {
 		throw Error(envFileName + ' File is not present');
 	}
 
@@ -25,7 +25,7 @@ function getPortalConfig(portal, environment)  {
 	const portal_environment_buff = fs.readFileSync(__dirname + '/' + envFileName, 'utf8');
 	const portal_environment_veriables = dotenv.parse(portal_environment_buff);
 
-	return  {
+	return {
 		...environment_veriables,
 		...portal_environment_veriables
 	}
@@ -34,24 +34,24 @@ function getPortalConfig(portal, environment)  {
 
 fs.readdir('./portals', function (err, files) {
 	let configs = {};
-    //handling error
-    if (err) {
-        return console.log('Unable to scan directory: ' + err);
-    } 
-    //listing all files using forEach
-    files.forEach(function (file) {        
-    	
-        let portal = file.split('.').slice(0, -1).join('.')
-        if (file !== 'index.js') {
-        	const portal_config  = require('./portals/' + file);
-        	const portal_environment_config = getPortalConfig(portal, environment);
-    		configs[portal] = {
-        		...portal_environment_config,
-        		...portal_config,
-        	}
-        }
+	//handling error
+	if (err) {
+		return console.log('Unable to scan directory: ' + err);
+	}
+	//listing all files using forEach
+	files.forEach(function (file) {
 
-    });
-    fs.writeFile('./portals/index.js', 'module.exports = ' + JSON.stringify(configs), 'utf8', function (){});
+		let portal = file.split('.').slice(0, -1).join('.')
+		if (file !== 'index.js') {
+			const portal_config = require('./portals/' + file);
+			const portal_environment_config = getPortalConfig(portal, environment);
+			configs[portal] = {
+				...portal_environment_config,
+				...portal_config,
+			}
+		}
+
+	});
+	fs.writeFile('./portals/index.js', 'module.exports = ' + JSON.stringify(configs), 'utf8', function () { });
 });
 

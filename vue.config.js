@@ -37,20 +37,23 @@ module.exports = {
     //subpage: 'src/subpage/main.js'
   },
   publicPath: currentPortal.getAssetsUrl(),
-  outputDir:  __dirname + currentPortal.getOutputDir(),
-  indexPath:  __dirname + currentPortal.getIndexFilePath(),
+  outputDir: __dirname + currentPortal.getOutputDir(),
+  indexPath: __dirname + currentPortal.getIndexFilePath(),
+  css: {
+    modules: true
+  },
   chainWebpack: config => {
-      if (process.env.NODE_ENV === 'production') {
-        new CopyPlugin([
-          { from: __dirname + '/.htaccess', to: __dirname + currentPortal.getOutputDir() + '/.htaccess' },
-          { from: __dirname + '/web.config', to: __dirname + currentPortal.getOutputDir() + '/web.config' },
-        ])
-      }
-      config.module
+    if (process.env.NODE_ENV === 'production') {
+      new CopyPlugin([
+        { from: __dirname + '/.htaccess', to: __dirname + currentPortal.getOutputDir() + '/.htaccess' },
+        { from: __dirname + '/web.config', to: __dirname + currentPortal.getOutputDir() + '/web.config' },
+      ])
+    }
+    config.module
       .rule('images')
-        .use('url-loader')
-          .loader('url-loader')
-          .tap(options => Object.assign(options, { limit: 10240 }))
+      .use('url-loader')
+      .loader('url-loader')
+      .tap(options => Object.assign(options, { limit: 10240 }))
   },
   configureWebpack: {
     // resolve: {
