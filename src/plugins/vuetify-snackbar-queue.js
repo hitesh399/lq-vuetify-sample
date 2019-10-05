@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import VSnackBarQueue from '../../node_modules/vuetify-snackbar-queue/src/components/VSnackbarQueue.vue'
 import { EventBus } from 'lq-form'
 
 
@@ -27,7 +26,6 @@ class Message {
 
 const MessagePlugin = {
   install (Vue) {
-    Vue.component('v-snackbar-queue', VSnackBarQueue)
     Object.defineProperty(Vue.prototype, '$message',   {value: new Message() });
   }
 }

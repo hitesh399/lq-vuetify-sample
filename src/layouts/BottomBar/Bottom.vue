@@ -1,20 +1,35 @@
 <template>
-    <v-footer class="footer-section" fixed app clipped-left height="50px">
-        <v-layout row wrap>
-            <v-flex md7 sm6 xs12></v-flex>
-            <v-flex
-                md5
-                sm6
-                xs12
-                d-flex
-                align-center
-                justify-end
-            >&copy; Copyrights 2019 Tuneup.com. All Rights Reserved.</v-flex>
-        </v-layout>
+    <v-footer id="core-footer" absolute height="82">
+        <div class="footer-items">
+            <span v-for="link in links" :key="link.name">
+                <a :href="link.Link" class="tertiary--text footer-links">{{ link.name }}</a>
+            </span>
+        </div>
+        <v-spacer />
+        <span class="font-weight-light copyright">
+            &copy;
+            {{ (new Date()).getFullYear() }}
+            <a
+                href="javascript:void(0)"
+                target="_blank"
+            >A Company</a>, made with
+            <v-icon color="tertiary" size="17">favorite</v-icon> for a better web
+        </span>
     </v-footer>
 </template>
+
 <script>
 export default {
-    name: 'bottom'
+    data: () => ({
+        links: [
+            { name: 'Home', Link: '/dashboard' },
+        ]
+    })
 };
 </script>
+
+<style>
+#core-footer {
+    z-index: 0;
+}
+</style>

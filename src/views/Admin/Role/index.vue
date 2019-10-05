@@ -1,0 +1,73 @@
+<template>
+    <div>
+        <title-layout>
+            <lq-list-filter name="role_list" class="list_filter">
+                <v-layout justify-end row>
+                    <v-flex sm6>
+                        <lq-v-text-field
+                            id="search"
+                            append-icon="search"
+                            placeholder="Search"
+                            single-line
+                            hide-details
+                        />
+                    </v-flex>
+                    <v-flex md2 v-if="isDeveloper">
+                        <v-btn color="primary" :to="{name: 'role.create'}" dark>
+                            Create
+                            <v-icon>add</v-icon>
+                        </v-btn>
+                    </v-flex>
+                </v-layout>
+            </lq-list-filter>
+        </title-layout>
+        <v-container fluid grid-list-md>
+            <v-layout>
+                <v-flex sm12>
+                    <lq-v-data-table
+                        table-name="role_list"
+                        action="role"
+                        :headers="headers"
+                        item-key="id"
+                        default-sort-by="name"
+                    >
+                        <template v-slot:items="{index, item}">
+                            <v-serial-no :index="index" />
+                            <td>{{item.title}}</td>
+                            <td align="right">
+                                <v-btn
+                                    :to="`/role/${item.id}/edit`"
+                                    slot="activator"
+                                    class="v-btn--simple"
+                                    color="success"
+                                    icon
+                                >
+                                    <v-icon>edit</v-icon>
+                                </v-btn>
+                            </td>
+                        </template>
+                    </lq-v-data-table>
+                </v-flex>
+            </v-layout>
+        </v-container>
+    </div>
+</template>
+<script>
+export default {
+    name: 'role.list.page',
+    data() {
+        return {
+            headers: [
+                { text: '#', value: 'sn', sortable: false, align: 'left' },
+                {
+                    text: 'Name',
+                    value: 'roles.title',
+                    sortable: true,
+                    align: 'left'
+                },
+                { text: 'Action', value: 'roles.action', align: 'right' }
+            ]
+        };
+    }
+};
+</script>

@@ -1,18 +1,31 @@
 <template>
-    <component v-bind:is="layout">
-        <slot />
-    </component>
+    <v-app :class="{
+        'public-app': isPublic
+    }">
+        <component v-bind:is="layout">
+            <slot />
+        </component>
+        <MessageQueue />
+    </v-app>
 </template>
 
 <script>
 import AdminLayout from './layouts/Admin';
+import MessageQueue from './components/Vuetify/MessageQueue';
+
 export default {
     name: 'App',
     props: {
         layout: String
     },
     components: {
-        AdminLayout
+        AdminLayout,
+        MessageQueue
+    },
+    computed: {
+        isPublic() {
+            return this.$route.meta.isPublic ? true : false;
+        }
     },
     created: function() {
         this.$axios('site-general-config').then(response => {
@@ -31,3 +44,4 @@ export default {
     }
 };
 </script>
+

@@ -983,6 +983,7 @@
   resolved "https://registry.yarnpkg.com/@vue/cli-shared-utils/-/cli-shared-utils-3.11.0.tgz#a3d6f809b0dfb367e626b71405f85dea0631310b"
   integrity sha512-D7pst/4v9H1DD66fLxlZOwRR09R03MV0ROdKxBHmh3FmnApCA/RiaolFA/8w+B3CnevYMlV3SJ5fOAgedbswbA==
   dependencies:
+    "@hapi/joi" "^15.0.1"
     chalk "^2.4.1"
     execa "^1.0.0"
     launch-editor "^2.2.1"
@@ -2490,6 +2491,11 @@ chardet@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/chardet/-/chardet-0.7.0.tgz#90094849f0937f2eedc2425d0d28a9e5f0cbad9e"
   integrity sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==
+
+chartist@^0.11.0, chartist@^0.11.4:
+  version "0.11.4"
+  resolved "https://registry.yarnpkg.com/chartist/-/chartist-0.11.4.tgz#e96e1c573d8b67478920a3a6ae52359d9fc8d8b7"
+  integrity sha512-H4AimxaUD738/u9Mq8t27J4lh6STsLi4BQHt65nOtpLk3xyrBPaLiLMrHw7/WV9CmsjGA02WihjuL5qpSagLYw==
 
 check-types@^8.0.3:
   version "8.0.3"
@@ -5835,10 +5841,10 @@ lq-v-file@^0.1.31:
     vuejs-object-helper "^0.1.27"
     vuetify "1.5.*"
 
-lq-vuetify@^0.0.50:
-  version "0.0.50"
-  resolved "https://registry.yarnpkg.com/lq-vuetify/-/lq-vuetify-0.0.50.tgz#abf6967d9f36accf5925c0aa81c477201db155af"
-  integrity sha512-lsPj1+YzKDQFYaNGiKBHtGWnJTaMHZk0Iqhk/8OP9h1dXy7h2pgtdh1YRZa8jgj8HLNS1wGwu8brmfooyWSZqA==
+lq-vuetify@^0.0.52:
+  version "0.0.52"
+  resolved "https://registry.yarnpkg.com/lq-vuetify/-/lq-vuetify-0.0.52.tgz#502d7ceb4d3e990235c210ea02d868128be5da80"
+  integrity sha512-qjQKyUIeAwYq1DK/Qk+C1qOlreQaLOyEHchc0UKhTbT9xYxnBVMvjs5wL5LqPFMNKhXatMrghcVpq/QzuEgG8A==
   dependencies:
     axios "^0.19.0"
     core-js "^2.6.5"
@@ -5911,6 +5917,11 @@ map-visit@^1.0.0:
   integrity sha1-7Nyo8TFE5mDxtb1B8S80edmN+48=
   dependencies:
     object-visit "^1.0.0"
+
+material-design-icons-iconfont@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/material-design-icons-iconfont/-/material-design-icons-iconfont-5.0.1.tgz#371875ed7fe9c8c520bc7123c3231feeab731c31"
+  integrity sha512-Xg6rIdGrfySTqiTZ6d+nQbcFepS6R4uKbJP0oAqyeZXJY/bX6mZDnOmmUJusqLXfhIwirs0c++a6JpqVa8RFvA==
 
 maximatch@^0.1.0:
   version "0.1.0"
@@ -9048,6 +9059,11 @@ uglify-js@3.4.x:
     commander "~2.19.0"
     source-map "~0.6.1"
 
+underscore@^1.9.1:
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.9.1.tgz#06dce34a0e68a7babc29b365b8e74b8925203961"
+  integrity sha512-5/4etnCkd9c8gwgowi5/om/mYO5ajCaOgdzj/oW+0eQV9WxKBDZw5+ycmKmeaTXjInS/W0BzpGLo2xR2aBwZdg==
+
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/unicode-canonical-property-names-ecmascript/-/unicode-canonical-property-names-ecmascript-1.0.4.tgz#2619800c4c825800efdd8343af7dd9933cbe2818"
@@ -9269,6 +9285,13 @@ vm-browserify@^1.0.1:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.0.tgz#bd76d6a23323e2ca8ffa12028dc04559c75f9019"
   integrity sha512-iq+S7vZJE60yejDYM0ek6zg308+UZsdtPExWP9VZoCFCz1zkJoXFnAX7aZfd/ZwrkidzdUZL0C/ryW+JwAiIGw==
 
+vue-chartist@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/vue-chartist/-/vue-chartist-2.2.1.tgz#c110f06c252467c5682634265abab543fb9c730f"
+  integrity sha512-JM7zQ9Y1PaRKF5sf82+bVuyL4qjDi+1eidOYbUlOHkzyQ3YhSUZGONDeO5ae+SISE6INvuL5js5hLOKxQMh+Vg==
+  dependencies:
+    chartist "^0.11.0"
+
 vue-croppie@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/vue-croppie/-/vue-croppie-2.0.1.tgz#ba52b2b9aaae3db882618567f96bc95ea69b41ec"
@@ -9304,6 +9327,11 @@ vue-hot-reload-api@^2.3.0:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
   integrity sha512-BXq3jwIagosjgNVae6tkHzzIk6a8MHFtzAdwhnV5VlvPTFxDCvIttgSiHWjdGoTJvXtmRu5HacExfdarRcFhog==
+
+vue-json-pretty@^1.6.2:
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/vue-json-pretty/-/vue-json-pretty-1.6.2.tgz#7fb1eb5e6536ed30ada757df129889d0249c5505"
+  integrity sha512-thZrceEBt9HqEX94/xnws5N/d165BIXbLY1VPeT2UyDP8jbGNC54+wzzJuLFF1teZLtTRfNOz8wf8bmuoJ/kRw==
 
 vue-loader@^15.7.0:
   version "15.7.1"

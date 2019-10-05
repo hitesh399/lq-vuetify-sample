@@ -2,7 +2,7 @@
 const minimist = require('minimist');
 const CopyPlugin = require('copy-webpack-plugin');
 let args = minimist(process.argv.slice(2));
-const portal = args.portal;
+const portal = args.portal ? args.portal : 'admin';
 process.env['VUE_APP_PORTAL_NAME'] = portal;
 
 
@@ -36,34 +36,49 @@ module.exports = {
     // Output filename is inferred to be `subpage.html`.
     //subpage: 'src/subpage/main.js'
   },
+
   publicPath: currentPortal.getAssetsUrl(),
   outputDir: __dirname + currentPortal.getOutputDir(),
   indexPath: __dirname + currentPortal.getIndexFilePath(),
-  css: {
-    modules: true
-  },
+  // css: {
+  //   loaderOptions: {
+  //     css: {
+  //       localIdentName: '[name]-[hash]',
+  //       camelCase: 'only'
+  //     }
+  //   }
+  // },
   chainWebpack: config => {
-    if (process.env.NODE_ENV === 'production') {
-      new CopyPlugin([
-        { from: __dirname + '/.htaccess', to: __dirname + currentPortal.getOutputDir() + '/.htaccess' },
-        { from: __dirname + '/web.config', to: __dirname + currentPortal.getOutputDir() + '/web.config' },
-      ])
-    }
-    config.module
-      .rule('images')
-      .use('url-loader')
-      .loader('url-loader')
-      .tap(options => Object.assign(options, { limit: 10240 }))
+
+    const imgRule = config.module.rule('images')
+    imgRule.uses.clear()
+    imgRule
+      .use("file-loader")
+      .loader("file-loader")
+      .options({
+        limit: 10000,
+        name: process.env.NODE_ENV === 'production' ? 'assets/images/[name]-[hash].[ext]' : 'assets/images/[name].[ext]'
+      })
+      .end();
+
   },
   configureWebpack: {
-    // resolve: {
-    //   alias: {
-    //     'lq-form': 'lq-form/src/main',
-    //     'lq-vuetify': 'lq-vuetify/src/main',
-    //     'lq-v-data-table': 'lq-v-data-table/src/main',
-    //     'vuejs-object-helper': 'vuejs-object-helper/src/main',
-    //     'lq-v-file': 'lq-v-file/src/main'
-    //   }
-    // }
-  }
+    resolve: {
+      alias: {
+        // 'lq-form': 'lq-form/src/main',
+        'lq-vuetify': 'lq-vuetify/src/main',
+        // 'lq-v-data-table': 'lq-v-data-table/src/main',
+        // 'vuejs-object-helper': 'vuejs-object-helper/src/main',
+        // 'lq-v-file': 'lq-v-file/src/main'
+      }
+    }
+  },
+  // configureWebpack: config => {
+  //   if (process.env.NODE_ENV === 'production') {
+  //     new CopyPlugin([
+  //       { from: __dirname + '/.htaccess', to: __dirname + currentPortal.getOutputDir() + '/.htaccess' },
+  //       { from: __dirname + '/web.config', to: __dirname + currentPortal.getOutputDir() + '/web.config' },
+  //     ])
+  //   }
+  // }
 }

@@ -11,7 +11,10 @@ const app = {
     device: 'desktop',
     tabs: {},
     configs: {},
-    accordions: {}
+    accordions: {},
+    color: 'success',
+    image: 'https://demos.creative-tim.com/vue-material-dashboard/img/sidebar-2.32103624.jpg',
+    sidebarBackgroundColor: 'rgba(27, 27, 27, 0.74)'
   },
   mutations: {
     TOGGLE_SIDEBAR: state => {

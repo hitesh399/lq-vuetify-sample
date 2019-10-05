@@ -39,20 +39,15 @@
         :disabled="!miniVariant"
     >
         <span>{{aItem.title}}</span>
-        <v-list-tile :to="{name: aItem.name}" exact slot="activator">
+        <v-list-tile :to="{name: aItem.name}" exact slot="activator" v-bind="$attrs">
             <v-list-tile-action v-if="!subGroup && aItem.meta && aItem.meta.icon">
-                <i
-                    aria-hidden="true"
-                    class="v-icon material-icons theme--light"
-                >{{aItem.meta && aItem.meta.icon ? aItem.meta.icon : 'dashboard' }}</i>
+                <v-icon>{{aItem.meta && aItem.meta.icon ? aItem.meta.icon : 'dashboard' }}</v-icon>
             </v-list-tile-action>
             <v-list-tile-content>
-                <v-list-tile-title>
-                    {{aItem.title}}
-                    <span
-                        v-if="aItem.meta && aItem.meta.count_key"
-                    >({{getCount(aItem.meta.count_key)}})</span>
-                </v-list-tile-title>
+                {{aItem.title}}
+                <span
+                    v-if="aItem.meta && aItem.meta.count_key"
+                >({{getCount(aItem.meta.count_key)}})</span>
             </v-list-tile-content>
         </v-list-tile>
     </component>

@@ -5,23 +5,32 @@
         <side-bar v-if="!isPublic" ref="sidebar" :check-permission="checkPermission" />
         <top-bar v-if="!isPublic" @toggle-left-drawer="toggleLeftDrawer" />
         <v-content v-if="!isPublic">
-            <router-view />
+            <div id="core-view">
+                <v-fade-transition mode="out-in">
+                    <router-view />
+                </v-fade-transition>
+            </div>
+            <bottom-bar />
         </v-content>
         <v-container v-else authspace fill-height>
-            <router-view />
+            <v-fade-transition mode="out-in">
+                <router-view />
+            </v-fade-transition>
         </v-container>
     </v-app>
 </template>
 <script>
 import SideBar from './SideBar';
 import TopBar from './TopBar';
+import BottomBar from './BottomBar/Bottom';
 const portal = require('@/utils/portal-helper');
 const currentPortal = portal.currentPortal;
 
 export default {
     components: {
         SideBar,
-        TopBar
+        TopBar,
+        BottomBar
     },
     name: 'admin-layout',
     computed: {
@@ -38,10 +47,13 @@ export default {
         toggleLeftDrawer() {
             this.$store.dispatch('ToggleSideBar');
         }
-    },
-    mounted: function() {
-        this.$root.$dialogLoader = this.$refs.dialogLoader;
-        this.$root.$confirm = this.$refs.confirm.open;
     }
 };
 </script>
+
+
+<style>
+#core-view {
+    padding-bottom: 100px;
+}
+</style>

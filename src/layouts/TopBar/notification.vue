@@ -1,23 +1,15 @@
 <template>
-    <v-navigation-drawer temporary right="right" :value="drawer" fixed app class="notification-sec">
-        <v-toolbar flat prominent dark class="primary">
-            <v-toolbar-title>Notifications</v-toolbar-title>
-            <v-spacer></v-spacer>
-            <v-btn icon @click.stop="$emit('close')">
-                <v-icon>close</v-icon>
-            </v-btn>
+    <v-navigation-drawer temporary right="right" :value="drawer" fixed app >
+        <v-toolbar flat prominent dark color="primary">
+            
+            <v-list-tile-title color="white">
+                Notifications ({{totalNotification}})
+                <v-icon color="danger" class="subheading">delete</v-icon>
+            </v-list-tile-title>
+
+            <v-icon @click.stop="$emit('close')">close</v-icon>
         </v-toolbar>
-        <v-list subheader dense>
-            <v-subheader>
-                All notifications
-                <v-btn
-                    v-if="totalNotification"
-                    flat
-                    class="mw-default action-icon m-auto text-red pull-right mr-3"
-                >
-                    <v-icon class="subheading">delete</v-icon>
-                </v-btn>
-            </v-subheader>
+        <v-list dense>
             <lq-list
                 action="notification"
                 :other-server-data="['data.unread_total']"
@@ -54,7 +46,6 @@
 </template>
 
 <script>
-
 export default {
     props: {
         drawer: Boolean
@@ -74,7 +65,3 @@ export default {
     }
 };
 </script>
-
-
-<style>
-</style>

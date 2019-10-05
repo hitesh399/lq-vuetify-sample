@@ -1,5 +1,5 @@
 <template>
-    <v-btn color="info" :loading="lqForm.isSubmiting" @click.stop="lqForm.submit(data)">
+    <v-btn  color="success" class="mx-0 font-weight-light" :loading="lqForm.isSubmiting" @click.stop="lqForm.submit(data)">
         {{ lqForm.isSubmiting ? busyMessage : label }}
     </v-btn>
 </template>

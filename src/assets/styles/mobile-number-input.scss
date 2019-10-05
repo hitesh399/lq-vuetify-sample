@@ -1,0 +1,12 @@
+.calling_option {
+  width: 60px;
+  cursor: pointer;
+
+  .v-input__slot {
+    box-shadow: none !important;
+    border: none !important;
+  }
+  .v-input__slot {
+    padding: 0 !important;
+  }
+}
