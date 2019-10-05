@@ -12,7 +12,7 @@
                             item-text="name"
                             item-value="id"
                             clearable
-                            id="client_ids"
+                            id="client_id"
                             placeholder="For Application"
                         />
                     </v-flex>

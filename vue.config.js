@@ -66,7 +66,7 @@ module.exports = {
     resolve: {
       alias: {
         // 'lq-form': 'lq-form/src/main',
-        'lq-vuetify': 'lq-vuetify/src/main',
+        // 'lq-vuetify': 'lq-vuetify/src/main',
         // 'lq-v-data-table': 'lq-v-data-table/src/main',
         // 'vuejs-object-helper': 'vuejs-object-helper/src/main',
         // 'lq-v-file': 'lq-v-file/src/main'

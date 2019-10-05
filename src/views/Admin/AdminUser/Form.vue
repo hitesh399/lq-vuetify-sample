@@ -26,6 +26,7 @@
                             placeholder="Role"
                             :static-data="{my_app_role: 'yes'}"
                             label="Role"
+                            item-text="title"
                             id="role"
                             action="/role"
                         />

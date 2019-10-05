@@ -5841,10 +5841,10 @@ lq-v-file@^0.1.31:
     vuejs-object-helper "^0.1.27"
     vuetify "1.5.*"
 
-lq-vuetify@^0.0.52:
-  version "0.0.52"
-  resolved "https://registry.yarnpkg.com/lq-vuetify/-/lq-vuetify-0.0.52.tgz#502d7ceb4d3e990235c210ea02d868128be5da80"
-  integrity sha512-qjQKyUIeAwYq1DK/Qk+C1qOlreQaLOyEHchc0UKhTbT9xYxnBVMvjs5wL5LqPFMNKhXatMrghcVpq/QzuEgG8A==
+lq-vuetify@^0.0.53:
+  version "0.0.53"
+  resolved "https://registry.yarnpkg.com/lq-vuetify/-/lq-vuetify-0.0.53.tgz#b3403ecf064af12469fe051f026fa2b36ebff2d6"
+  integrity sha512-r+LgEu6ps523TSKaaJPRdej063UW77lYLAsUknBlJYwswt4dkRCl3FHnBalHKcL6fLbQOC3AfbsW4Igqfq2PUg==
   dependencies:
     axios "^0.19.0"
     core-js "^2.6.5"
