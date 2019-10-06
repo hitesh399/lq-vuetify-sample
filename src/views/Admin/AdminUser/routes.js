@@ -19,7 +19,7 @@ export default
                 meta: {
                     heading: 'Admin Users',
                     icon: 'person',
-                    permission: 'admin.admin'
+                    permission: 'admin.admin-user'
                 },
             },
             {
@@ -28,7 +28,7 @@ export default
                 hidden: true,
                 meta: {
                     heading: 'Create Admin',
-                    permission: 'admin.admin'
+                    permission: 'admin.admin-user.create'
                 },
                 component: Create,
             },
@@ -38,7 +38,7 @@ export default
                 hidden: true,
                 meta: {
                     heading: 'Edit Admin',
-                    permission: 'admin.admin'
+                    permission: 'admin.admin-user.edit'
                 },
                 component: Edit,
             }

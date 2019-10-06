@@ -26,7 +26,7 @@
         two-line>
         <template  v-for="item in menuItems" >
           <v-list-tile :key="`${item.id}`">
-            <v-list-tile-action @click.stop="switchPermission(item)">
+            <v-list-tile-action>
               <lq-v-checkbox multiple id="menu_items" :value="item.id" />
             </v-list-tile-action>
             <v-list-tile-content>

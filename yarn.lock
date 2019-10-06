@@ -4910,6 +4910,13 @@ ignore@^4.0.3, ignore@^4.0.6:
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-4.0.6.tgz#750e3db5862087b4737ebac8207ffd1ef27b25fc"
   integrity sha512-cyFDKrqc/YdcWFniJhzI42+AzS+gNwmUzOSFcRCQYwySuBBBy/KjuxWLZ/FHEH6Moq1NizMOBWyTcv8O4OZIMg==
 
+immutability-helper@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/immutability-helper/-/immutability-helper-3.0.1.tgz#4f609c5afbf8d78cb297970e8af2fba8b0eda1d6"
+  integrity sha512-U92ROQQt7XkIwrdqCByUI118TQM1hXdKnRQpvKeA0HRyGSnJipu9IWHe4UD8zCN00O8UnQjQzPCgZ1CC3yBzHA==
+  dependencies:
+    invariant "^2.2.4"
+
 import-cwd@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/import-cwd/-/import-cwd-2.1.0.tgz#aa6cf36e722761285cb371ec6519f53e2435b0a9"
@@ -5050,7 +5057,7 @@ internal-ip@^4.3.0:
     default-gateway "^4.2.0"
     ipaddr.js "^1.9.0"
 
-invariant@^2.2.2:
+invariant@^2.2.2, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
@@ -5819,10 +5826,24 @@ lq-form@^0.1.86:
     vuex "^3.1.0"
     webpack-bundle-analyzer "^3.3.2"
 
-lq-v-data-table@^0.1.7:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/lq-v-data-table/-/lq-v-data-table-0.1.7.tgz#fa2bd1dedef3c3b5d315185d03694148f69255e1"
-  integrity sha512-PHPRJGitPiK7VyJzFn+fFWyJ/aqNlxI0/6KbmGczOIZ9J9rmcmXd+czpNh7gkyMr2z5sBsnR1CDFr+dYbtUlyg==
+lq-form@^0.1.90:
+  version "0.1.90"
+  resolved "https://registry.yarnpkg.com/lq-form/-/lq-form-0.1.90.tgz#ea060e5ba69e9d0fbdaa99fa3a83547804e368ce"
+  integrity sha512-Q0PE5ud5EegdisHG0gXOMtr+aX/Xn9pvKHxh8TgItpTHchJkf7D53JAR7u/dsU+Fhb8naqZvvAhb+X3iyDS0+Q==
+  dependencies:
+    axios "^0.19.0"
+    lodash "^4.17.14"
+    recursive-copy "^2.0.10"
+    validate.js "^0.12.0"
+    vue-loader "^15.7.0"
+    vuejs-object-helper "^0.1.25"
+    vuex "^3.1.0"
+    webpack-bundle-analyzer "^3.3.2"
+
+lq-v-data-table@^0.1.10:
+  version "0.1.10"
+  resolved "https://registry.yarnpkg.com/lq-v-data-table/-/lq-v-data-table-0.1.10.tgz#59f9e71bc1193a89ead54c6ed9093abc3b1bb7ee"
+  integrity sha512-FkpjcjkWblckXBiAGhAp1Hdb67nbGEGWv7H4UXpNKahXw6JlVMnRSDp/SEeVomdL/c3SSC5ixgkaHPVrGdvQHA==
   dependencies:
     core-js "^2.6.5"
     vue "^2.6.10"
@@ -5841,10 +5862,10 @@ lq-v-file@^0.1.31:
     vuejs-object-helper "^0.1.27"
     vuetify "1.5.*"
 
-lq-vuetify@^0.0.53:
-  version "0.0.53"
-  resolved "https://registry.yarnpkg.com/lq-vuetify/-/lq-vuetify-0.0.53.tgz#b3403ecf064af12469fe051f026fa2b36ebff2d6"
-  integrity sha512-r+LgEu6ps523TSKaaJPRdej063UW77lYLAsUknBlJYwswt4dkRCl3FHnBalHKcL6fLbQOC3AfbsW4Igqfq2PUg==
+lq-vuetify@^0.0.54:
+  version "0.0.54"
+  resolved "https://registry.yarnpkg.com/lq-vuetify/-/lq-vuetify-0.0.54.tgz#0270e415427df83a4097cc372a490ad9cfaeb601"
+  integrity sha512-vjYK0SLvirawxqkpL89jI+ayudtkUn/hrKSaQSdimoSFOIWuPLXWgDQQThHARB0BcZXM0r8tQsVClwSNWkIfYw==
   dependencies:
     axios "^0.19.0"
     core-js "^2.6.5"
@@ -9343,6 +9364,14 @@ vue-loader@^15.7.0:
     loader-utils "^1.1.0"
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
+
+vue-nestable@^2.4.5:
+  version "2.4.5"
+  resolved "https://registry.yarnpkg.com/vue-nestable/-/vue-nestable-2.4.5.tgz#8719e5da49bbde52a97091937e00a710dffbb67d"
+  integrity sha512-9pEyohk+LeTwfPYBFx1r/1F6+yfaceeQVBC/bfB9dXvwD/jYmv8wkt0QN5E9c1MIgcZxUClMBFv+q4L+H5U/9w==
+  dependencies:
+    immutability-helper "^3.0.1"
+    vue "^2.6.10"
 
 vue-router@^3.0.3:
   version "3.1.3"

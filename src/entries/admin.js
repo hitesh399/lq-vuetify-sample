@@ -8,6 +8,8 @@ import AuthLayout from '../views/Auth/Layout'
 import TitleLayout from '../views/Admin/TitleLayout'
 import TitleRow from '../views/Admin/TitleRow';
 import '../assets/styles/index.scss'
+import VueNestable from 'vue-nestable'
+Vue.use(VueNestable)
 
 if (!getDeviceId()) {
     setDeviceId(guidGenerator())
@@ -17,3 +19,6 @@ Vue.component('title-layout', TitleLayout)
 Vue.component('title-row', TitleRow)
 
 render('admin-layout', router, main);
+
+
+ 

@@ -1,4 +1,5 @@
 import { mapGetters } from 'vuex';
+import { canAccess } from '../utils'
 
 export default {
     name: 'global-mix',
@@ -47,6 +48,9 @@ export default {
         },
         toFixed(num, maxDigit = 2) {
             return parseFloat(Math.round(num * 100) / 100).toFixed(maxDigit)
+        },
+        can(permissions) {
+            return canAccess(permissions)
         }
     }
 }
