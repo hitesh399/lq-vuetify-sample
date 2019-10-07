@@ -5826,10 +5826,10 @@ lq-form@^0.1.86:
     vuex "^3.1.0"
     webpack-bundle-analyzer "^3.3.2"
 
-lq-form@^0.1.90:
-  version "0.1.90"
-  resolved "https://registry.yarnpkg.com/lq-form/-/lq-form-0.1.90.tgz#ea060e5ba69e9d0fbdaa99fa3a83547804e368ce"
-  integrity sha512-Q0PE5ud5EegdisHG0gXOMtr+aX/Xn9pvKHxh8TgItpTHchJkf7D53JAR7u/dsU+Fhb8naqZvvAhb+X3iyDS0+Q==
+lq-form@^0.1.91:
+  version "0.1.91"
+  resolved "https://registry.yarnpkg.com/lq-form/-/lq-form-0.1.91.tgz#3557229ca6b29b6975745c5b6ee4265576529a20"
+  integrity sha512-JnitQDhvSOnXqmW0wi5UTqEt/beRCPb4i6aL1a8FvB/P4wyXobiN0PG6YEPab11Cg0mhQIL1Yf4IxNvAhyqnSw==
   dependencies:
     axios "^0.19.0"
     lodash "^4.17.14"
@@ -5840,10 +5840,10 @@ lq-form@^0.1.90:
     vuex "^3.1.0"
     webpack-bundle-analyzer "^3.3.2"
 
-lq-v-data-table@^0.1.10:
-  version "0.1.10"
-  resolved "https://registry.yarnpkg.com/lq-v-data-table/-/lq-v-data-table-0.1.10.tgz#59f9e71bc1193a89ead54c6ed9093abc3b1bb7ee"
-  integrity sha512-FkpjcjkWblckXBiAGhAp1Hdb67nbGEGWv7H4UXpNKahXw6JlVMnRSDp/SEeVomdL/c3SSC5ixgkaHPVrGdvQHA==
+lq-v-data-table@^0.1.11:
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/lq-v-data-table/-/lq-v-data-table-0.1.11.tgz#c14b44cf6c4a1d7e63566ad61a4a79974fb45eef"
+  integrity sha512-CeAWhfE+Zi5AnQOXtIrFhtN4YrWxayAjksyDEewZ+Vn+tAWF4Q1wxkYoVMJgsR0O/RHitFuneIm+dD5R+gLYUQ==
   dependencies:
     core-js "^2.6.5"
     vue "^2.6.10"
@@ -5862,15 +5862,15 @@ lq-v-file@^0.1.31:
     vuejs-object-helper "^0.1.27"
     vuetify "1.5.*"
 
-lq-vuetify@^0.0.54:
-  version "0.0.54"
-  resolved "https://registry.yarnpkg.com/lq-vuetify/-/lq-vuetify-0.0.54.tgz#0270e415427df83a4097cc372a490ad9cfaeb601"
-  integrity sha512-vjYK0SLvirawxqkpL89jI+ayudtkUn/hrKSaQSdimoSFOIWuPLXWgDQQThHARB0BcZXM0r8tQsVClwSNWkIfYw==
+lq-vuetify@^0.0.56:
+  version "0.0.56"
+  resolved "https://registry.yarnpkg.com/lq-vuetify/-/lq-vuetify-0.0.56.tgz#4e0d55fd66b6266fc9e50eab6c03c8f9061f2eae"
+  integrity sha512-CwC4Vm7MmnIfqsHlOOvs8VAHl+xeQJIPLdr+LICurF57VQeDELTKwKzCgW7/gDMX3yychr4m2ChT4a9PJocvKw==
   dependencies:
     axios "^0.19.0"
     core-js "^2.6.5"
     date-fns "^2.0.1"
-    lq-form "^0.1.86"
+    lq-form "^0.1.91"
     mdi "^2.2.43"
     moment "^2.24.0"
     vue "^2.6.10"

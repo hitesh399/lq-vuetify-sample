@@ -1,6 +1,6 @@
 <template>
     <div>
-        <title-layout :filter="true" tableName="admin_list">
+        <title-layout :filter="true" tableName="admin_list" v-if="showTable">
             <template>
                 <title-row>
                     <v-flex md6 sm6 xs12>
@@ -52,6 +52,7 @@
                         :static-data="{my_app_user: 'yes'}"
                         default-sort-by="users.name"
                         :auto-filter="false"
+                        v-if="showTable"
                     >
                         <template v-slot:items="{index, item}">
                             <v-serial-no :index="index" />
@@ -95,7 +96,7 @@
 </template>
 <script>
 import ChangeStatus from './ChangeStatus';
-
+import { tableAliveOnly } from '../../../utils';
 export default {
     name: 'admin.list.page',
     components: { ChangeStatus },
@@ -135,8 +136,29 @@ export default {
                         'admin.admin-user.delete'
                     ]
                 }
-            ]
+            ],
+            showTable: false,
+            example: {
+                title: 'Range',
+                inputClass: 'exampleDatePicker',
+                lang: 'en',
+                position: 'right',
+                range: true,
+                value: ['2019-10-06T18:30:00.000Z', '2019-10-25T18:30:00.000Z'],
+                firstDayOfWeek: 'monday'
+            }
         };
+    },
+    beforeRouteEnter(to, from, next) {
+        tableAliveOnly(
+            from,
+            next,
+            'admin_list',
+            ['admin.edit', 'admin.create'],
+            function(vm) {
+                vm.showTable = true;
+            }
+        );
     }
 };
 </script>

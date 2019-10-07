@@ -53,3 +53,32 @@ export function getTimeOffset() {
     let absolute_number = parseInt(user_timezone / 60);
     return sign + absolute_number.pad(2) + (modulus ? ':' + modulus.pad(2) : ':00');
 }
+export function tableAliveOnly(from, next, table_name, route_names, callback) {
+    if (
+        from &&
+        from.name &&
+        !route_names.includes(
+            from.name
+        )
+    ) {
+        next(vm => {
+            const page_size_key = vm.$helper.getProp(
+                vm.$store.state.table,
+                `${table_name}.settings.page_size_key`
+            );
+            if (page_size_key) {
+                const page_size = vm.$helper.getProp(
+                    vm.$store.state.form,
+                    `${table_name}.values.${page_size_key}`
+                );
+                vm.$store.commit('form/saveValues', {
+                    formName: table_name,
+                    values: { [page_size_key]: page_size }
+                })
+            }
+            callback(vm)
+        });
+    } else {
+        next(callback);
+    }
+}

@@ -25,6 +25,7 @@ Vue.component('go-back', BackBtn)
 Vue.component('v-serial-no', SerialNo)
 Vue.component('lq-v-delete-selected', DeleteSelected)
 Vue.component('lq-v-delete-data-table-item', DeleteDataTableItem)
+
 Vue.use(VuetifyConfirm, {
     buttonTrueText: 'Yes',
     buttonFalseText: 'Discard',
