@@ -16,15 +16,10 @@ export default {
     components: {
         AdminForm
     },
-    data() {
-        return {
-            admin: {}
-        };
-    },
     created() {
         this.axios('admin/' + this.$route.params.id).then(response => {
-            this.admin = this.$helper.getProp(response, 'data', {});
-            this.$lqForm.initializeValues('admin_form', this.admin.data);
+            const admin = this.$helper.getProp(response, 'data', {});
+            this.$lqForm.initializeValues('admin_form', admin.data, response.current_permission);
         });
     }
 };

@@ -60,7 +60,7 @@ export default {
         extraData() {
             return {
                 rolePermissions: this.rolePermissions.map(function(rp) {
-                    if (!rp.tag && rp.field_selection) {
+                    if (!rp.tag && !rp.field_selection) {
                         return;
                     }
                     return {

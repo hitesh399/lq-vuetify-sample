@@ -22,7 +22,7 @@
             <lq-v-textarea v-else id="body" label="Body" auto-grow />
         </v-flex>
         <v-flex md12 >
-            <lq-v-combobox id="options.variables" label="Variables" multiple />
+            <lq-v-combobox small-chips id="options.variables" label="Variables" multiple />
         </v-flex>
     </v-layout>
 </template>
