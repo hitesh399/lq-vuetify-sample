@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "vue-cli-service build",
+    "build-admin": "yarn config-key-merge && vue-cli-service build --portal=admin",
     "lint": "vue-cli-service lint",
     "config-key-merge": "node portalConfig",
     "serve-admin": "yarn config-key-merge && vue-cli-service serve --portal=admin"
@@ -19,7 +20,7 @@
     "dotenv": "^8.1.0",
     "fs": "^0.0.1-security",
     "js-cookie": "^2.2.1",
-    "lq-form": "^0.1.93",
+    "lq-form": "^0.1.96",
     "lq-v-data-table": "^0.1.11",
     "lq-v-file": "^0.1.31",
     "lq-vuetify": "^0.0.57",
@@ -37,6 +38,7 @@
     "vue-nestable": "^2.4.5",
     "vue-router": "^3.0.3",
     "vuejs-object-helper": "^0.1.28",
+    "vuetify-loader": "^1.3.0",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

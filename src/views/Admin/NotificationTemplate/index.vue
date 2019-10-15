@@ -64,6 +64,11 @@
                                 >
                                     <v-icon dark>edit</v-icon>
                                 </v-btn>
+                                <lq-v-delete-data-table-item
+                                        :item="item"
+                                        confirm-msg="Are you sure to delete this Notification?"
+                                        url="/notification-template"
+                                    />
                             </td>
                         </template>
                     </lq-v-data-table>
@@ -106,7 +111,7 @@ export default {
             typeOptions: [
                 { label: 'SMS Notification', value: 'sms' },
                 { label: 'Email Notification', value: 'email' },
-                // {label: 'Push Notification', value: 'push_notification'},
+                {label: 'Push Notification', value: 'push_notification'},
                 { label: 'Database Notification', value: 'database' }
             ]
         };

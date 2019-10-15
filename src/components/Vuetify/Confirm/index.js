@@ -2,10 +2,15 @@ import Confirm from './Confirm.vue'
 
 function Install(Vue, options) {
     const property = (options && options.property) || '$confirm'
-    function createDialogCmp(options) {
+    function createDialogCmp(options, component, callback) {
         return new Promise(resolve => {
             const cmp = new Vue(Object.assign({}, Confirm, {
-                propsData: Object.assign({}, Vue.prototype.$confirm.options, options),
+                propsData: Object.assign(
+                    {}, 
+                    Vue.prototype.$confirm.options, 
+                    options, 
+                    { customComponent: component, callback: callback }
+                ),
                 destroyed: (c) => {
                     document.body.removeChild(cmp.$el)
                     resolve(cmp.value)
@@ -15,9 +20,9 @@ function Install(Vue, options) {
         })
     }
 
-    function show(message, options = {}) {
+    function show(message, options = {}, component, callback) {
         options.message = message
-        return createDialogCmp(options)
+        return createDialogCmp(options, component, callback)
     }
 
     Vue.prototype[property] = show

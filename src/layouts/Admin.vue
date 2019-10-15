@@ -1,23 +1,22 @@
 <template>
-    <v-app :class="{
-        'public-app': isPublic
-    }">
-        <side-bar v-if="!isPublic" ref="sidebar" :check-permission="checkPermission" />
-        <top-bar v-if="!isPublic" @toggle-left-drawer="toggleLeftDrawer" />
-        <v-content v-if="!isPublic">
+    <div v-if="!isPublic" >
+        <side-bar ref="sidebar" :check-permission="checkPermission" />
+        <top-bar  @toggle-left-drawer="toggleLeftDrawer" />
+        <v-content >
             <div id="core-view">
                 <v-fade-transition mode="out-in">
-                    <router-view />
+                    <router-view :key="$route.fullPath"/>
                 </v-fade-transition>
             </div>
-            <bottom-bar />
+           
         </v-content>
-        <v-container v-else authspace fill-height>
-            <v-fade-transition mode="out-in">
-                <router-view />
-            </v-fade-transition>
-        </v-container>
-    </v-app>
+        <bottom-bar/>
+    </div>
+    <v-container v-else authspace fill-height>
+        <v-fade-transition mode="out-in">
+            <router-view  :key="$route.fullPath"/>
+        </v-fade-transition>
+    </v-container>
 </template>
 <script>
 import SideBar from './SideBar';

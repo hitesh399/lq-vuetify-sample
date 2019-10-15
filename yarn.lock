@@ -5695,7 +5695,7 @@ loader-utils@^0.2.16:
     json5 "^0.5.0"
     object-assign "^4.0.1"
 
-loader-utils@^1.0.2, loader-utils@^1.1.0, loader-utils@^1.2.3:
+loader-utils@^1.0.2, loader-utils@^1.1.0, loader-utils@^1.2.0, loader-utils@^1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-1.2.3.tgz#1ff5dc6911c9f0a062531a4c04b609406108c2c7"
   integrity sha512-fkpz8ejdnEMG3s37wGL07iSBDg99O9D5yflE9RGNH3hRdx9SOwYfnGYdZOUIZitN8E+E2vkq3MUMYMvPYl5ZZA==
@@ -5830,6 +5830,20 @@ lq-form@^0.1.93:
   version "0.1.93"
   resolved "https://registry.yarnpkg.com/lq-form/-/lq-form-0.1.93.tgz#f2e825324213234db482f7c481fd3c8a63a259a2"
   integrity sha512-yBuIfdXIvHRLsq3jYkVZEcpHDSNDBZLLSrl9Ypx/aG2oxbXVjJJRvL+pbMc7Yiq4FG5xBRQh5pCfWaHamoVNUg==
+  dependencies:
+    axios "^0.19.0"
+    lodash "^4.17.14"
+    recursive-copy "^2.0.10"
+    validate.js "^0.12.0"
+    vue-loader "^15.7.0"
+    vuejs-object-helper "^0.1.25"
+    vuex "^3.1.0"
+    webpack-bundle-analyzer "^3.3.2"
+
+lq-form@^0.1.96:
+  version "0.1.96"
+  resolved "https://registry.yarnpkg.com/lq-form/-/lq-form-0.1.96.tgz#c89dfb0adfa41f4c94638eb7555f16b6cd3f8623"
+  integrity sha512-lGEuoJUV2tFN7kAXM6pLygFedurobDcydVrE1gYP3IRWgL8MwctYyLSqzxMWVS4VlPn/bgrxiVX8jRQtXlA6ww==
   dependencies:
     axios "^0.19.0"
     lodash "^4.17.14"
@@ -9416,6 +9430,13 @@ vuetify-daterange-picker@^3.1.7-beta.2:
   version "3.1.7-beta.2"
   resolved "https://registry.yarnpkg.com/vuetify-daterange-picker/-/vuetify-daterange-picker-3.1.7-beta.2.tgz#95c1b888b9494bd32fca111ca37086bd3f694d2c"
   integrity sha512-4RhToNRjnbylMtMlIYq6MtzrpcPoZoWQzjfgVc7isHuR1Qygc/cL7lU9oU1DzxC4wFX5eNStA6+XtyJ40K2N0g==
+
+vuetify-loader@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/vuetify-loader/-/vuetify-loader-1.3.0.tgz#759f1d16f3f211eddbeeffc5c0b24105f2582b07"
+  integrity sha512-emKS3GWpx+0kWRHfoxpDpLR4HaXvhDn9bYNQf+IaaD5iU5S3xktDyS0egG7dp/oHLQr1U/Ui9g2ElhZUkdgRqw==
+  dependencies:
+    loader-utils "^1.2.0"
 
 vuetify@1.5.*, vuetify@^1.5.18:
   version "1.5.18"

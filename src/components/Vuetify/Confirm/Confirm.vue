@@ -12,7 +12,10 @@
             <v-toolbar-title class="white--text" v-text="title" />
         </v-toolbar>
         <v-card tile>
-            <v-card-text v-html="message" />
+            <v-card-text>
+                <p  v-html="message" />
+                <component :is="customComponent" ref="my_component" v-if="customComponent"></component>
+            </v-card-text>
             <v-card-actions>
                 <v-spacer />
                 <v-btn
@@ -47,6 +50,8 @@ export default {
             type: String,
             default: 'primary'
         },
+        customComponent: Object,
+        callback: Function,
         buttonFalseColor: {
             type: String,
             default: 'secondary'
@@ -81,10 +86,20 @@ export default {
         choose(value) {
             this.$emit('result', value);
             this.value = value;
+            if (this.value && this.callback) {
+                this.callback({
+                    destroy: this.unset,
+                    myComponent: this.$refs.my_component
+                })
+            } else {
+                this.unset();
+            }
+        },
+        unset() {
             this.$destroy();
         },
         change(res) {
-            this.$destroy();
+            this.unset();
         }
     }
 };

@@ -19,6 +19,7 @@
                 </v-list-tile>
             </v-toolbar-items>
             <v-spacer></v-spacer>
+            <RoleSwitch />
             <v-toolbar-items>
                 <v-flex align-center layout py-2>
                     <v-menu
@@ -95,11 +96,13 @@ import notification from './notification';
 import { logOutUser } from '@/utils/auth';
 import { mapGetters } from 'vuex';
 const Logo = require('@/assets/logo.png');
+import RoleSwitch from '../../components/RoleSwitch'
 
 export default {
     name: 'top-bar',
     components: {
-        notification
+        notification,
+        RoleSwitch
     },
     computed: {
         ...mapGetters(['sidebar', 'authProfile']),

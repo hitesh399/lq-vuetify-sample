@@ -11,6 +11,7 @@
 
 <script>
 import AdminLayout from './layouts/Admin';
+
 import MessageQueue from './components/Vuetify/MessageQueue';
 
 export default {

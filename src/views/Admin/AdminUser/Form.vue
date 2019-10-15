@@ -28,11 +28,12 @@
                         </v-flex>
                         <v-flex xs12 sm6 v-if="canShow('role')">
                             <lq-v-select
-                                placeholder="Role"
+                                placeholder="Roles"
                                 :static-data="{my_app_role: 'yes'}"
-                                label="Role"
+                                label="Roles"
                                 item-text="title"
-                                id="role"
+                                id="roles"
+                                multiple
                                 action="/role"
                             />
                         </v-flex>

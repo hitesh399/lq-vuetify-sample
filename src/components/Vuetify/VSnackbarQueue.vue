@@ -63,11 +63,11 @@ export default {
         },
         top: {
             required: false,
-            default: false
+            default: true
         },
         right: {
             required: false,
-            default: false
+            default: true
         },
         absolute: {
             required: false,

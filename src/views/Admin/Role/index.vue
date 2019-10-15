@@ -34,6 +34,8 @@
                         <template v-slot:items="{index, item}">
                             <v-serial-no :index="index" />
                             <td>{{item.title}}</td>
+                            <td>{{item.description}}</td>
+                            <td>{{item.clients.map(c => c.name).join(', ')}}</td>
                             <td align="right">
                                 <v-btn
                                     :to="`/role/${item.id}/edit`"
@@ -63,6 +65,18 @@ export default {
                     text: 'Name',
                     value: 'roles.title',
                     sortable: true,
+                    align: 'left'
+                },
+                {
+                    text: 'Description',
+                    value: 'roles.description',
+                    sortable: true,
+                    align: 'left'
+                },
+                {
+                    text: 'Applications',
+                    value: 'roles.client_ids',
+                    sortable: false,
                     align: 'left'
                 },
                 { text: 'Action', value: 'roles.action', align: 'right' }

@@ -19,12 +19,14 @@ const main = (props, router) => new Vue({
     store,
     data() {
         return {
-            responsive: false
+            responsive: false,
         }
     },
-    render: h => h(App, {
-        props: props
-    }),
+    render(h) {
+        return h(App, {
+            props: props
+        })
+    },
     created() {
         this.onResponsiveInverted();
         window.addEventListener('resize', this.onResponsiveInverted);
@@ -39,6 +41,17 @@ const main = (props, router) => new Vue({
             } else {
                 this.responsive = false;
             }
+        },
+        rerender() {
+            const name = this.$route.name;
+            const params = this.$route.params;
+            this.$router.replace('/', () => {
+                 this.$nextTick(() => {
+                    if (this.$route.name !== name) {
+                        this.$router.push({name: name, params: params})
+                    }
+                 })
+            })
         }
     }
 }).$mount('#app')
