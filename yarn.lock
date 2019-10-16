@@ -5826,20 +5826,6 @@ lq-form@^0.1.86:
     vuex "^3.1.0"
     webpack-bundle-analyzer "^3.3.2"
 
-lq-form@^0.1.93:
-  version "0.1.93"
-  resolved "https://registry.yarnpkg.com/lq-form/-/lq-form-0.1.93.tgz#f2e825324213234db482f7c481fd3c8a63a259a2"
-  integrity sha512-yBuIfdXIvHRLsq3jYkVZEcpHDSNDBZLLSrl9Ypx/aG2oxbXVjJJRvL+pbMc7Yiq4FG5xBRQh5pCfWaHamoVNUg==
-  dependencies:
-    axios "^0.19.0"
-    lodash "^4.17.14"
-    recursive-copy "^2.0.10"
-    validate.js "^0.12.0"
-    vue-loader "^15.7.0"
-    vuejs-object-helper "^0.1.25"
-    vuex "^3.1.0"
-    webpack-bundle-analyzer "^3.3.2"
-
 lq-form@^0.1.96:
   version "0.1.96"
   resolved "https://registry.yarnpkg.com/lq-form/-/lq-form-0.1.96.tgz#c89dfb0adfa41f4c94638eb7555f16b6cd3f8623"
@@ -5876,15 +5862,15 @@ lq-v-file@^0.1.31:
     vuejs-object-helper "^0.1.27"
     vuetify "1.5.*"
 
-lq-vuetify@^0.0.57:
-  version "0.0.57"
-  resolved "https://registry.yarnpkg.com/lq-vuetify/-/lq-vuetify-0.0.57.tgz#137f20cc0e88a293f0e312fb19e4ce443bdff1cc"
-  integrity sha512-CfWY891wEPUWPPCm/YrsTG6SYnENc2MBsd0QiOEg5QGW+xnkrvoLvi9L9zfJL0yEZ6iMozi3p3MeYhVuwmYPYQ==
+lq-vuetify@^0.0.58:
+  version "0.0.58"
+  resolved "https://registry.yarnpkg.com/lq-vuetify/-/lq-vuetify-0.0.58.tgz#5105aaf149e1a819ae94142d213347224028d6bf"
+  integrity sha512-UpGGOzJBbABvlMdLsvCA/T4H8U3knKP2UT5r8uwPpVHFo+e06sJn3ImSFJITgvEapo6HUBzCjLsX/Tlz5brhZw==
   dependencies:
     axios "^0.19.0"
     core-js "^2.6.5"
     date-fns "^2.0.1"
-    lq-form "^0.1.93"
+    lq-form "^0.1.96"
     mdi "^2.2.43"
     moment "^2.24.0"
     vue "^2.6.10"
