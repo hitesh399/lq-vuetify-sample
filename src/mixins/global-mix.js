@@ -1,5 +1,6 @@
 import { mapGetters } from 'vuex';
 import { canAccess } from '../utils'
+import DefaultProfileImage from '../assets/images/profile_pic.jpg';
 
 export default {
     name: 'global-mix',
@@ -51,6 +52,11 @@ export default {
         },
         can(permissions) {
             return canAccess(permissions)
+        }
+    },
+    data() {
+        return {
+            defaultProfileImage: DefaultProfileImage
         }
     }
 }

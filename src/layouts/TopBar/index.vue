@@ -1,16 +1,8 @@
 <template>
     <div class="header-Wrap">
-        <v-toolbar
-            id="core-toolbar"
-            color="white"
-            flat
-            :class="{ mini: isMiniVariant, 'main-top': true }"
-            :app="isDrawerOpen ? false: true"
-            prominent
-        >
+        <v-toolbar id="core-toolbar" flat app prominent style="background: #eee;">
             <v-toolbar-side-icon color="primary" @click.stop="toggleDrawer"></v-toolbar-side-icon>
-            <!-- <v-toolbar-title>{{$helper.getProp($route, 'meta.heading', 'No Heading')}}</v-toolbar-title> -->
-            <v-toolbar-items v-if="!$root.responsive">
+            <v-toolbar-items v-if="!$root.responsive && !isDrawerOpen">
                 <v-list-tile avatar>
                     <v-list-tile-avatar>
                         <v-img :src="logo" height="34" contain />
@@ -20,31 +12,28 @@
             </v-toolbar-items>
             <v-spacer></v-spacer>
             <RoleSwitch />
+            <v-spacer></v-spacer>
             <v-toolbar-items>
                 <v-flex align-center layout py-2>
                     <v-menu
+                        v-if="!$root.responsive"
                         offset-y
                         origin="center center"
                         :nudge-bottom="10"
                         transition="scale-transition"
                     >
-                        <div icon slot="activator" class="align-center d-flex profie-btn">
-                            <v-avatar class="small-user-profile">
-                                <v-img
-                                    :src="$helper.getProp(authProfile, 'profile_image.path')"
-                                    :alt="$helper.getProp(authProfile, 'name')"
-                                ></v-img>
-                            </v-avatar>
-                            <v-list-tile-title
-                                class="font-weight-medium"
-                            >{{ $helper.getProp(authProfile, 'name')}}</v-list-tile-title>
+                        <div icon slot="activator">
+                            <v-list-tile-title class="font-weight-medium">
+                                {{ $helper.getProp(authProfile, 'name')}}
+                                <v-icon>mdi-chevron-down</v-icon>
+                            </v-list-tile-title>
                         </div>
                         <v-list class="pa-0" light>
                             <v-list-tile avatar>
                                 <v-list-tile-avatar>
                                     <v-avatar>
                                         <v-img
-                                            :src="$helper.getProp(authProfile, 'profile_image.path')"
+                                            :src="$helper.getProp(authProfile, 'profile_image.path', defaultProfileImage)"
                                             :alt="$helper.getProp(authProfile, 'name')"
                                         ></v-img>
                                     </v-avatar>
@@ -68,22 +57,16 @@
                             </v-list-tile>
                         </v-list>
                     </v-menu>
-                    <v-tooltip bottom>
-                        <v-btn
-                            icon
-                            @click.stop="rightDrawer = !rightDrawer; readNotification()"
-                            slot="activator"
-                            :class="{
-                        'no-notification': totalUnreadNotification ? false : true
-                      }"
-                        >
-                            <v-badge overlap>
-                                <span slot="badge">{{totalUnreadNotification}}</span>
-                                <v-icon color="tertiary">notifications_active</v-icon>
-                            </v-badge>
-                        </v-btn>
-                        <span>{{ totalUnreadNotification }} unread notifications</span>
-                    </v-tooltip>
+                    <v-btn
+                        icon
+                        class="toolbar-items"
+                        @click.stop="rightDrawer = !rightDrawer; readNotification()"
+                    >
+                        <v-badge overlap color="error">
+                            <span slot="badge">{{totalUnreadNotification}}</span>
+                            <v-icon color="tertiary">mdi-bell</v-icon>
+                        </v-badge>
+                    </v-btn>
                 </v-flex>
             </v-toolbar-items>
         </v-toolbar>
@@ -96,7 +79,7 @@ import notification from './notification';
 import { logOutUser } from '@/utils/auth';
 import { mapGetters } from 'vuex';
 const Logo = require('@/assets/logo.png');
-import RoleSwitch from '../../components/RoleSwitch'
+import RoleSwitch from '../../components/RoleSwitch';
 
 export default {
     name: 'top-bar',
@@ -178,8 +161,4 @@ export default {
 };
 </script>
 
-<style>
-.mini .v-toolbar__content {
-    margin-left: 80px !important;
-}
-</style>
+

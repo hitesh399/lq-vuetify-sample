@@ -27,7 +27,7 @@
                 </title-row>
             </lq-list-filter>
         </title-layout>
-        <v-container fluid grid-list-md>
+        <v-container fluid grid-list-md fill-height>
             <v-layout>
                 <v-flex sm12>
                     <lq-v-data-table

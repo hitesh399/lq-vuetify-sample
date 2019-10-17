@@ -16,7 +16,7 @@ export default {
     data() {
         return {
             switching: false
-        }
+        };
     },
     computed: {
         ...mapGetters(['authProfile']),
@@ -32,16 +32,21 @@ export default {
     },
     methods: {
         switchRole(role_id) {
-            this.switching = true
-            this.$axios(`device/role/${role_id}/switch`).then((response) => {
-                this.switching = false
-                this.$store.dispatch('profile/set', { data: response.data.user })
-                this.$root.rerender();
-
-                this.$message.success('Role has been switch.')
-            }).catch(() => {
-                this.switching = false
-            })
+            this.switching = true;
+            const processbar = this.$processbar('Switching...');
+            this.$axios(`device/role/${role_id}/switch`)
+                .then(response => {
+                    this.switching = false;
+                    processbar.hide();
+                    this.$store.dispatch('profile/set', {
+                        data: response.data.user
+                    });
+                    this.$router.replace('/');
+                })
+                .catch(() => {
+                    this.switching = false;
+                    processbar.hide();
+                });
         }
     }
 };

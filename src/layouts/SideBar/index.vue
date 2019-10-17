@@ -2,15 +2,22 @@
     <v-navigation-drawer
         id="app-drawer"
         v-model="drawer"
-        :mini-variant.sync="miniVariant"
-        app
+        :mini-variant="miniVariant && hoverWhenMini ? false: miniVariant"
+        :app="miniVariant && hoverWhenMini ? false : true"
         dark
+        :fixed="hoverWhenMini"
         floating
         persistent
         mobile-break-point="991"
         width="260"
     >
-        <v-img :src="image" :gradient="sidebarOverlayGradiant" height="100%">
+        <v-img
+            :src="image"
+            @mouseleave="hoverWhenMini=false"
+            @mouseover="miniVariant ? hoverWhenMini = true : null"
+            :gradient="sidebarOverlayGradiant"
+            height="100%"
+        >
             <v-layout class="fill-height" tag="v-list" column>
                 <v-list-tile avatar>
                     <v-list-tile-avatar color="white">
@@ -25,19 +32,15 @@
                     </v-btn>
                 </v-list-tile>
                 <v-divider />
-                <v-list-tile v-if="$root.responsive">
-                    <v-text-field
-                        class="purple-input search-input"
-                        label="Search..."
-                        color="purple"
-                    />
-                </v-list-tile>
-                <v-list class="pa-0" :class="{'mini' : miniVariant, 'main-theme-nav': true}">
+                <v-list
+                    class="pa-0"
+                    :class="{'mini' : miniVariant && !hoverWhenMini, 'main-theme-nav': true}"
+                >
                     <sidebar-item
                         :item="route"
-                        :mini-variant="miniVariant"
+                        :mini-variant="miniVariant && !hoverWhenMini"
                         v-for="route in routes"
-                        :active-class="miniVariant ? undefined : color"
+                        :active-class="miniVariant && !hoverWhenMini ? undefined : color"
                         :check-permission="checkPermission"
                         :key="`${path}_${route.name ? route.name : route.title}`"
                     ></sidebar-item>
@@ -76,6 +79,7 @@ export default {
     },
     data: () => ({
         logo: Logo,
+        hoverWhenMini: false
     }),
     computed: {
         ...mapGetters(['sidebar', 'authProfile', 'app']),
@@ -160,20 +164,10 @@ export default {
     div.v-responsive.v-image > div.v-responsive__content {
         overflow-y: auto;
     }
-    .v-list__tile .v-list__tile__action {
-        min-width: 35px;
-    }
-    .main-theme-nav.v-list .v-list__tile {
-        margin: 10px 15px 0;
-    }
-    .main-theme-nav.mini.v-list {
-        margin: 0;
-    }
-    &.v-navigation-drawer--mini-variant {
-        overflow-y: auto;
-        .v-list__group__items {
-            display: none;
-        }
+    &:not(.v-navigation-drawer--mini-variant)
+        .main-theme-nav.v-list
+        .v-list__tile {
+        margin: 5px 15px 5px
     }
 }
 </style>

@@ -1,18 +1,11 @@
 <template>
-    <v-app :class="{
-        'public-app': isPublic
-    }">
-        <component v-bind:is="layout">
-            <slot />
-        </component>
-        <MessageQueue />
-    </v-app>
+    <component v-bind:is="layout">
+        <slot />
+    </component>
 </template>
 
 <script>
 import AdminLayout from './layouts/Admin';
-
-import MessageQueue from './components/Vuetify/MessageQueue';
 
 export default {
     name: 'App',
@@ -21,7 +14,6 @@ export default {
     },
     components: {
         AdminLayout,
-        MessageQueue
     },
     computed: {
         isPublic() {

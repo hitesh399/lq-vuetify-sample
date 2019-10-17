@@ -1,26 +1,19 @@
 <template>
-    <component
-        v-if="isContainChildren && childrenLength > 1"
-        v-bind:is="rootComponent"
+    <v-list-group
+        v-if="!miniVariant && isContainChildren && childrenLength > 1"
         :sub-group="subGroup"
         :value="matchedInCurrentRoute(item)"
         no-action
     >
         <template v-slot:activator>
-            <v-tooltip nudge-right="200" min-width="120px" left :disabled="!miniVariant">
-                <span>{{ item.title }}</span>
-                <v-list-tile slot="activator">
-                    <v-list-tile-action v-if="item.meta && item.meta.icon">
-                        <i
-                            aria-hidden="true"
-                            class="v-icon material-icons theme--light"
-                        >{{item.meta && item.meta.icon ? item.meta.icon : 'dashboard' }}</i>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                        <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-                    </v-list-tile-content>
-                </v-list-tile>
-            </v-tooltip>
+            <v-list-tile>
+                <v-list-tile-action v-if="item.meta.icon">
+                    <v-icon>{{item.meta.icon}}</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-content>
+                    <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+                </v-list-tile-content>
+            </v-list-tile>
         </template>
         <sidebar-item
             :item="subItem"
@@ -28,29 +21,21 @@
             :sub-group="true"
             :key="subItem.name || subItem.title"
             v-for="subItem in getChildren(item)"
+            :to="{name: subItem.name}"
+            v-bind="$attrs"
         ></sidebar-item>
-    </component>
-    <component
-        v-else-if="aItem && !aItem.hidden"
-        v-bind:is="rootComponent"
-        nudge-right="200"
-        min-width="120px"
-        left
-        :disabled="!miniVariant"
-    >
-        <span>{{aItem.title}}</span>
-        <v-list-tile :to="{name: aItem.name}" exact slot="activator" v-bind="$attrs">
-            <v-list-tile-action v-if="!subGroup && aItem.meta && aItem.meta.icon">
-                <v-icon>{{aItem.meta && aItem.meta.icon ? aItem.meta.icon : 'dashboard' }}</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>
-                {{aItem.title}}
-                <span
-                    v-if="aItem.meta && aItem.meta.count_key"
-                >({{getCount(aItem.meta.count_key)}})</span>
-            </v-list-tile-content>
-        </v-list-tile>
-    </component>
+    </v-list-group>
+    <v-list-tile v-else-if="aItem && !aItem.hidden" :to="{name: aItem.name}" v-bind="$attrs">
+        <v-list-tile-action v-if="!subGroup && aItem.meta && aItem.meta.icon">
+            <v-icon>{{aItem.meta && aItem.meta.icon ? aItem.meta.icon : 'dashboard' }}</v-icon>
+        </v-list-tile-action>
+        <v-list-tile-content>
+            {{aItem.title}}
+            <span
+                v-if="aItem.meta && aItem.meta.count_key"
+            >({{getCount(aItem.meta.count_key)}})</span>
+        </v-list-tile-content>
+    </v-list-tile>
 </template>
 
 <script>
@@ -81,17 +66,6 @@ export default {
         }
     },
     computed: {
-        totalPending() {
-            return this.$helper.getProp(
-                this.$store.state.table,
-                'pending_list.settings.total'
-            );
-        },
-        rootComponent: function() {
-            return this.isContainChildren && this.childrenLength > 1
-                ? 'v-list-group'
-                : 'v-tooltip';
-        },
         isContainChildren: function() {
             return this.hasChildren(this.item);
         },

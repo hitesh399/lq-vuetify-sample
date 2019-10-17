@@ -3,7 +3,6 @@
         <v-layout row wrap align-center fill-height>
             <v-flex xs12 sm12 md12>
                 <v-card>
-                    
                     <v-container fluid grid-list-md style="padding: 5px; padding-right: 10px">
                         <v-layout row wrap align-center fill-height>
                             <v-flex v-bind="leftCol">
@@ -44,12 +43,17 @@
         >
             <v-icon>filter_list</v-icon>
         </v-btn>
-        <v-navigation-drawer v-if="filter" app right v-model="showFilterDrawer" fixed>
+        <v-navigation-drawer v-if="showFilterDrawer" app right v-model="showFilterDrawer">
             <v-toolbar flat dark color="primary">
                 <v-icon>filter_list</v-icon>Filters
             </v-toolbar>
             <lq-list-filter :name="tableName">
-                <v-progress-linear v-if="requesting" color="success" indeterminate style="margin: 0"></v-progress-linear>
+                <v-progress-linear
+                    v-if="requesting"
+                    color="success"
+                    indeterminate
+                    style="margin: 0"
+                ></v-progress-linear>
                 <v-container fluid grid-list-md>
                     <slot name="filter"></slot>
                 </v-container>

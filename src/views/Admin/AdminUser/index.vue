@@ -3,14 +3,23 @@
         <title-layout :filter="true" tableName="admin_list" v-if="showTable">
             <template>
                 <title-row>
-                    <v-flex md6 sm6 xs12>
-                        <lq-v-text-field id="search" append-icon="search" placeholder="Search" />
+                    <v-flex md4 sm4 xs12>
+                        <lq-v-date-range
+                            id="created_at_range"
+                            display-format="dd/MM/yyyy"
+                            label="Created At Range"
+                            placeholder="Created At Range"
+                        />
                     </v-flex>
-                    <v-flex md6 sm6 xs12>
+                    <v-flex md4 sm4 xs12>
+                        <lq-v-text-field id="search" label="Keyword Search" append-icon="search" placeholder="Search" />
+                    </v-flex>
+                    <v-flex md4 sm4 xs12>
                         <title-row>
                             <lq-filter-btn tag="v-btn" color="info">
                                 <v-icon>filter_list</v-icon>Filter
                             </lq-filter-btn>
+
                             <v-btn
                                 color="primary"
                                 :to="{name: 'admin.create'}"
@@ -31,12 +40,6 @@
                         id="status"
                         :options="['Active', 'In-active']"
                         placeholder="Status"
-                    />
-                    <lq-v-date-range
-                        id="created_at_range"
-                        display-format="dd/MM/yyyy"
-                        label="Created At Range"
-                        placeholder="Created At Range"
                     />
                 </v-flex>
             </template>
