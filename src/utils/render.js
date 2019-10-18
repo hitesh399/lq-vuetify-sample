@@ -34,6 +34,7 @@ export default (layoutName, router, main) => {
     } else if (getToken()) {
         myProfile()
             .then((response) => {
+                document.querySelector('.pace').remove()
                 store.dispatch('profile/set', { data: response.data.user });
                 main({ layout: layoutName }, router)
             }).catch(() => {
@@ -44,22 +45,25 @@ export default (layoutName, router, main) => {
                             const { device, token } = response.data
                             const login_index = device.login_index
                             const url = new URL(currentPortal.getLandingUrl(login_index));
-
+                            document.querySelector('.pace').remove()
                             setTokens(token, url.pathname, url.hostname)
                             store.dispatch('profile/set', { data: response.data.user })
                             main({ layout: layoutName }, router)
 
                         }).catch(() => {
+                            document.querySelector('.pace').remove()
                             removeToken();
                             removeRefreshToken();
                             main({ layout: layoutName }, router)
                         })
                 } else {
+                    document.querySelector('.pace').remove()
                     removeToken();
                     main({ layout: layoutName }, router)
                 }
             })
     } else {
+        document.querySelector('.pace').remove()
         main({ layout: layoutName }, router)
     }
 }
