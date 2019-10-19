@@ -5,6 +5,7 @@ node_modules
 # local env files
 .env.local
 .env.*.local
+.env
 
 # Log files
 npm-debug.log*
@@ -20,3 +21,11 @@ yarn-error.log*
 *.sln
 *.sw?
 portals/index.js
+### Firebase ###
+.idea
+**/node_modules/*
+**/.firebaserc
+
+### Firebase Patch ###
+.runtimeconfig.json
+.firebase/

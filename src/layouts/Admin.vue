@@ -6,11 +6,8 @@
         <side-bar v-if="!isPublic" ref="sidebar" :check-permission="checkPermission" />
         <v-content v-if="!isPublic">
             <div id="core-view">
-                <v-fade-transition mode="out-in">
-                    <router-view :key="$route.fullPath" />
-                </v-fade-transition>
+                <router-view />
             </div>
-
             <bottom-bar />
         </v-content>
         <v-container v-else authspace fill-height>

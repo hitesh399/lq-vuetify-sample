@@ -39,7 +39,7 @@
                                     </v-avatar>
                                 </v-list-tile-avatar>
                                 <v-list-tile-content>
-                                    <router-link to="/">
+                                    <router-link :to="{name: 'my-profile.show'}">
                                         <v-list-tile-title>{{ $helper.getProp(authProfile, 'name')}}</v-list-tile-title>
                                         <v-list-tile-sub-title>{{ $helper.getProp(authProfile, 'role.title')}}</v-list-tile-sub-title>
                                     </router-link>
