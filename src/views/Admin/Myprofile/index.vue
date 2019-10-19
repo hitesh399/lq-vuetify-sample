@@ -2,19 +2,9 @@
     <v-container fill-height
     fluid
     grid-list-xl>
-       <!--  <v-layout row wrap>
-          <v-flex xs12 md8 offset-xs4>
-           
-
-            </v-tabs>  
-          </v-flex>
-          </v-layout> -->
 
             <v-layout row wrap>
                 <v-flex xs12 md4>
-                    <!-- <keep-alive>
-                        <v-img :src="defaultProfileImage" />
-                    </keep-alive> -->
                     <material-card class="v-card-profile">
                           <v-avatar
                             slot="offset"
