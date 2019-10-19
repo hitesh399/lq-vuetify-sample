@@ -9,6 +9,7 @@ import developer from '@/views/Admin/Developer/routes'
 import Logout from '@/views/Logout'
 import role from '@/views/Admin/Role/routes'
 import config from '@/views/Admin/Config/routes'
+import myprofile from '@/views/Admin/Myprofile/routes'
 import notificationTemplate from '@/views/Admin/NotificationTemplate/routes'
 
 const portal = require('@/utils/portal-helper');
@@ -37,6 +38,7 @@ export default new Router({
     role,
     config,
     developer,
+    myprofile,
     {
       path: '*',
       name: 'NotFound',

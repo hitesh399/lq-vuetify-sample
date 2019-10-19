@@ -77,11 +77,9 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
-import Logo from "@/mixins/logo";
 
 
 export default {
-  mixins: [ Logo ],
   name: 'profile-form',
   computed: {
     ...mapGetters(['authProfile'])
