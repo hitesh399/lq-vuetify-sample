@@ -17,6 +17,7 @@
     "copy-webpack-plugin": "^5.0.4",
     "core-js": "^2.6.5",
     "dotenv": "^8.1.0",
+    "firebase": "^7.2.1",
     "fs": "^0.0.1-security",
     "js-cookie": "^2.2.1",
     "lq-form": "^0.1.96",

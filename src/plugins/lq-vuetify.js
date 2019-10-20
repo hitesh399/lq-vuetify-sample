@@ -9,6 +9,7 @@ import DeleteSelected from '../components/Vuetify/DeleteSelected';
 import DeleteDataTableItem from '../components/Vuetify/DeleteDataTableItem';
 import VuetifyConfirm from '../components/Vuetify/Confirm'
 import VuetifyProcessBar from '../components/Vuetify/ProcessBar'
+import ImageUploader from '../components/Vuetify/ImageUploader';
 
 import BackBtn from '../views/BackBtn';
 import Editor from '@/components/Tinymce';
@@ -25,6 +26,7 @@ Vue.component('go-back', BackBtn)
 Vue.component('v-serial-no', SerialNo)
 Vue.component('lq-v-delete-selected', DeleteSelected)
 Vue.component('lq-v-delete-data-table-item', DeleteDataTableItem)
+Vue.component('image-uploader', ImageUploader)
 
 Vue.use(VuetifyConfirm, {
     buttonTrueText: 'Yes',

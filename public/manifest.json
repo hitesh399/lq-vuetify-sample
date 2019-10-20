@@ -1,6 +1,6 @@
 {
-  "name": "lq-client2-sample",
-  "short_name": "lq-client2-sample",
+  "name": "Lq Vuetify",
+  "short_name": "lq-vuetify",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",
@@ -16,5 +16,6 @@
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#000000",
-  "theme_color": "#4DBA87"
+  "theme_color": "#4DBA87",
+  "gcm_sender_id": "272460278301"
 }

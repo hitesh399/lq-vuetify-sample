@@ -15,8 +15,8 @@ console.log('process.env', publicPath, currentPortal.getOutputDir())
 
 const copyFiles = (process.env.NODE_ENV === 'production') ? [
   { from: __dirname + '/.htaccess', to: __dirname + currentPortal.getOutputDir() },
-  { from: __dirname + '/web.config', to: __dirname + currentPortal.getOutputDir()},
-]: [];
+  { from: __dirname + '/web.config', to: __dirname + currentPortal.getOutputDir() },
+] : [];
 
 module.exports = {
   devServer: {
@@ -70,7 +70,7 @@ module.exports = {
       .end();
   },
   configureWebpack: {
-    plugins: [ new CopyPlugin(copyFiles)],
+    plugins: [new CopyPlugin(copyFiles)],
     resolve: {
       alias: {
         // 'lq-form': 'lq-form/src/main',
@@ -83,4 +83,11 @@ module.exports = {
       }
     }
   },
+  pwa: {
+    // configure the workbox plugin
+    workboxPluginMode: 'InjectManifest',
+    workboxOptions: {
+      swSrc: "src/firebase-messaging-sw.js"
+    }
+  }
 }

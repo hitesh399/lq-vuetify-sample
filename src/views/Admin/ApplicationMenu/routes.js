@@ -11,7 +11,7 @@ export default {
 		meta: { heading: 'Application Menu', icon: false, permission: 'admin.developer'},
 		children: [
 			{
-				path: '',
+				path: 'list',
 				name: 'application_menu.list',
 				component: List,
 				title: 'Menu',
