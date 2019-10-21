@@ -3,6 +3,7 @@
         name="admin_form"
         :action="requestAction"
         ref="form"
+        :disabled="disabled"
         :request-method="requestMethod"
         @submited-success="onSuccess"
         @submited-error="onError"
@@ -73,6 +74,10 @@ export default {
         requestAction: {
             type: String,
             default: () => 'customer'
+        },
+        disabled: {
+            type: Boolean,
+            default: () => false
         }
     },
     methods: {

@@ -11,18 +11,18 @@ export default
         path: '/my-profile',
         title: 'My Profile',
         component: MyProfile,
-        meta: { heading: 'My Profile', icon: 'view_list' },
-        // hidden: true,
+        meta: { heading: 'My Profile', icon: 'account_circle' },
+        hidden: true,
         children: [
             {
                 path: '',
-                // hidden: true,
+                hidden: true,
                 name: 'my-profile.show',
                 component: Show,
                 title: 'My Profile',
                 meta: {
                     heading: 'My Profile',
-                    icon: 'view_list',
+                    icon: 'account_circle',
                     permission: 'myprofile'
                 }
             },

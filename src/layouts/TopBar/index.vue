@@ -49,7 +49,7 @@
 
                             <v-list-tile key="lock_open" @click="logOut">
                                 <v-list-tile-action>
-                                    <v-icon>lock_open</v-icon>
+                                    <v-icon>lock</v-icon>
                                 </v-list-tile-action>
                                 <v-list-tile-content>
                                     <v-list-tile-title>Logout</v-list-tile-title>
@@ -76,7 +76,7 @@
 
 <script>
 import notification from './notification';
-import { logOutUser } from '@/utils/auth';
+import { logOutUser, myProfile } from '@/utils/auth';
 import { mapGetters } from 'vuex';
 const Logo = require('@/assets/logo.png');
 import RoleSwitch from '../../components/RoleSwitch';
@@ -157,6 +157,13 @@ export default {
                 });
             });
         }
+    },
+    created() {
+        this.$socket.on('notification.MYPROFILE_UPDATED_BY_ADMIN', () => {
+            myProfile().then(response => {
+                this.$store.dispatch('profile/set', { data: response.data.user });
+            });
+        });
     }
 };
 </script>

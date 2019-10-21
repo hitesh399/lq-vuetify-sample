@@ -52,6 +52,40 @@ export default {
         },
         can(permissions) {
             return canAccess(permissions)
+        },
+        browserNotify(payload) {
+            const notification_title = this.$helper.getProp(payload, 'notification.title')
+            const notification_body = this.$helper.getProp(payload, 'notification.body')
+            const data_title = this.$helper.getProp(payload, 'data.title')
+            const data_body = this.$helper.getProp(payload, 'data.body')
+
+            const title = notification_title ? notification_title : data_title
+            const body = notification_body ? notification_body : data_body
+
+            // Let's check if the browser supports notifications
+            if (!("Notification" in window)) {
+                this.$message.error("This browser does not support desktop notification");
+                return; 
+            }
+
+            // Let's check whether notification permissions have already been granted
+            else if (Notification.permission === "granted") {
+                // If it's okay let's create a notification
+                new Notification(title, {
+                    body: body,
+                    icon: '/img/favicon-16x16.png'
+                });
+            } else if (Notification.permission !== "denied") {
+                Notification.requestPermission().then(function (permission) {
+                    // If the user accepts, let's create a notification
+                    if (permission === "granted") {
+                        new Notification(title, {
+                            body: body,
+                            icon: '/img/favicon-16x16.png'
+                        });
+                    }
+                });
+            }
         }
     },
     data() {

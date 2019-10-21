@@ -8,10 +8,5 @@ import './lq-v-file'
 import './lq-v-datatable'
 import './vuetify-snackbar-queue'
 import './chartist'
-// import './socket-io'
-// import './vue-nestable'
-// import Vue from 'vue'
-// import ConfirmAction from '../mixins/confirm-and-action'
-// import Developer from '../mixins/is-developer'
-// Vue.mixin(ConfirmAction)
-// Vue.mixin(Developer)
+import './socket-io'
+import './simplebar'

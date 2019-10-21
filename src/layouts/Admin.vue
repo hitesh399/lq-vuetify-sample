@@ -8,7 +8,8 @@
             <div id="core-view">
                 <router-view />
             </div>
-            <bottom-bar />
+
+            <bottom-bar v-if="!$root.responsive"/>
         </v-content>
         <v-container v-else authspace fill-height>
             <v-fade-transition mode="out-in">
@@ -16,6 +17,22 @@
             </v-fade-transition>
         </v-container>
         <MessageQueue />
+        <v-bottom-nav fixed v-if="!isPublic" :active.sync="bottomNav" :value="$root.responsive">
+            <v-btn color="info" flat value="myProfile" :to="{name: 'my-profile.show'}">
+                <span>My Profile</span>
+                <v-icon>account_circle</v-icon>
+            </v-btn>
+
+            <v-btn  color="info" flat value="dashboard" :to="{name: 'dashboard'}">
+                <span>Dashboard</span>
+                <v-icon>dashboard</v-icon>
+            </v-btn>
+
+            <v-btn  color="info" flat :to="{name: 'logout'}">
+                <span>Logout</span>
+                <v-icon>lock</v-icon>
+            </v-btn>
+        </v-bottom-nav>
     </v-app>
 </template>
 <script>
@@ -32,6 +49,11 @@ export default {
         TopBar,
         BottomBar,
         MessageQueue
+    },
+    data() {
+        return {
+            bottomNav: 1
+        }
     },
     name: 'admin-layout',
     computed: {

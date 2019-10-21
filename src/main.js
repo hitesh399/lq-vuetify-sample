@@ -30,6 +30,15 @@ const main = (props, router) => new Vue({
     created() {
         this.onResponsiveInverted();
         window.addEventListener('resize', this.onResponsiveInverted);
+        
+        if (window.navigator) {
+            const {userAgent, platform, appVersion} = window.navigator
+            this.$axios.put('my-device',{
+                name: userAgent,
+                platform,
+                version: appVersion
+            })
+        }
     },
     beforeDestroy() {
         window.removeEventListener('resize', this.onResponsiveInverted);

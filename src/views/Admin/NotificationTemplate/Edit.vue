@@ -39,7 +39,6 @@ export default {
     created() {
         this.$axios('notification-template/' + this.$route.params.id).then(
             response => {
-                // console.log('Response', response)
                 const template = response.data.template;
                 this.$lqForm.initializeValues(
                     'notification_template_form',

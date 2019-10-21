@@ -6,14 +6,14 @@
 
 <script>
 import AdminLayout from './layouts/Admin';
-
+import firebase from './firebase'
 export default {
     name: 'App',
     props: {
         layout: String
     },
     components: {
-        AdminLayout,
+        AdminLayout
     },
     computed: {
         isPublic() {
@@ -34,6 +34,26 @@ export default {
                 value: response.data.device_users
             });
         });
+        firebase.messaging.onMessage((payload) => {
+            console.log('Get Message from firebase', payload)
+            this.browserNotify(payload)
+        })
+        this.$socket.on('connect', this.joinToSocket);
+    },
+    methods: {
+        joinToSocket() {
+            const { id } = this.$socket;
+            if (this.authId && id) {
+                this.$axios.post('socket/join', { socket_id: id });
+            }
+        }
+    },
+    watch: {
+        authId(newVal) {
+            if (newVal) {
+                this.joinToSocket();
+            }
+        }
     }
 };
 </script>

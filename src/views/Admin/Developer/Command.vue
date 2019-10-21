@@ -45,9 +45,7 @@ export default {
             'site_config:cache',
             'cache:clear',
             'register:route-name',
-            'lq:delete-request-log',
-            'appointment:reject',
-            'consultant:payout',
+            'lq:delete-request-log'
         ],
         output: [],
         requesting: false

@@ -19,32 +19,38 @@
             height="100%"
         >
             <v-layout class="fill-height" tag="v-list" column>
-                <v-list-tile avatar>
-                    <v-list-tile-avatar color="white">
-                        <v-img :src="logo" height="34" contain />
-                    </v-list-tile-avatar>
-                    <v-list-tile-title>Vuetify MD</v-list-tile-title>
-                    <v-btn icon @click.stop="miniVariant = !miniVariant" v-if="!$root.responsive">
-                        <v-icon
-                            class="text-white"
-                            v-html="miniVariant ? 'chevron_right' : 'chevron_left'"
-                        ></v-icon>
-                    </v-btn>
-                </v-list-tile>
-                <v-divider />
-                <v-list
-                    class="pa-0"
-                    :class="{'mini' : miniVariant && !hoverWhenMini, 'main-theme-nav': true}"
-                >
-                    <sidebar-item
-                        :item="route"
-                        :mini-variant="miniVariant && !hoverWhenMini"
-                        v-for="route in routes"
-                        :active-class="miniVariant && !hoverWhenMini ? undefined : color"
-                        :check-permission="checkPermission"
-                        :key="`${path}_${route.name ? route.name : route.title}`"
-                    ></sidebar-item>
-                </v-list>
+                <div data-simplebar style="height: 100%; overflow-x: hidden">
+                    <v-list-tile avatar>
+                        <v-list-tile-avatar color="white">
+                            <v-img :src="logo" height="34" contain />
+                        </v-list-tile-avatar>
+                        <v-list-tile-title>Vuetify MD</v-list-tile-title>
+                        <v-btn
+                            icon
+                            @click.stop="miniVariant = !miniVariant"
+                            v-if="!$root.responsive"
+                        >
+                            <v-icon
+                                class="text-white"
+                                v-html="miniVariant ? 'chevron_right' : 'chevron_left'"
+                            ></v-icon>
+                        </v-btn>
+                    </v-list-tile>
+                    <v-divider />
+                    <v-list
+                        class="pa-0"
+                        :class="{'mini' : miniVariant && !hoverWhenMini, 'main-theme-nav': true}"
+                    >
+                        <sidebar-item
+                            :item="route"
+                            :mini-variant="miniVariant && !hoverWhenMini"
+                            v-for="route in routes"
+                            :active-class="miniVariant && !hoverWhenMini ? undefined : color"
+                            :check-permission="checkPermission"
+                            :key="`${path}_${route.name ? route.name : route.title}`"
+                        ></sidebar-item>
+                    </v-list>
+                </div>
                 <v-list-tile
                     active-class="primary"
                     class="v-list-item v-list__tile--buy"
@@ -167,7 +173,10 @@ export default {
     &:not(.v-navigation-drawer--mini-variant)
         .main-theme-nav.v-list
         .v-list__tile {
-        margin: 5px 15px 5px
+        margin: 5px 5px 5px
+    }
+    .v-list__tile__action {
+        min-width: 32px;
     }
 }
 </style>

@@ -57,7 +57,7 @@ export default {
     return {
       dialog: false,
       log: {},
-      active: 3
+      active: true
     }
   },
   created () {

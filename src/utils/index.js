@@ -3,6 +3,8 @@
  */
 
 import store from '@/store'
+const portal = require('@/utils/portal-helper');
+const currentPortal = portal.currentPortal;
 
 export function isExternal(path) {
     return /^(https?:|mailto:|tel:)/.test(path)
@@ -23,6 +25,11 @@ export function removeSlashes(path) {
  * @param {String|Array} permissions 
  */
 export function canAccess(permissions) {
+
+    /**
+     * Force Allow all Access
+     */
+    if (currentPortal.get('VUE_APP_CHECK_PERMISSION') === 'false') return true;
 
     if (!permissions) {
         return;

@@ -140,16 +140,7 @@ export default {
                     ]
                 }
             ],
-            showTable: false,
-            example: {
-                title: 'Range',
-                inputClass: 'exampleDatePicker',
-                lang: 'en',
-                position: 'right',
-                range: true,
-                value: ['2019-10-06T18:30:00.000Z', '2019-10-25T18:30:00.000Z'],
-                firstDayOfWeek: 'monday'
-            }
+            showTable: false
         };
     },
     beforeRouteEnter(to, from, next) {
