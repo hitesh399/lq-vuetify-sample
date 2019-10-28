@@ -1,10 +1,12 @@
 import Confirm from './Confirm.vue'
+import store from '../../../store'
 
 function Install(Vue, options) {
     const property = (options && options.property) || '$confirm'
     function createDialogCmp(options, component, callback) {
         return new Promise(resolve => {
             const cmp = new Vue(Object.assign({}, Confirm, {
+                store,
                 propsData: Object.assign(
                     {}, 
                     Vue.prototype.$confirm.options, 

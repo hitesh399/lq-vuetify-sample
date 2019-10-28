@@ -81,7 +81,8 @@ export function logOutUser(vue, socket_id) {
         } else {
             window.location.href = currentPortal.getPortalUrl()
         }
-    }).catch(() => {
+    }).catch((error) => {
+        console.log('error', error)
         removeToken();
         removeRefreshToken();
         store.dispatch('profile/delete')

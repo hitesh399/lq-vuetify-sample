@@ -4,8 +4,8 @@
         @input="change"
         value="true"
         :max-width="width"
-        :persistent="persistent"
-        @keydown.esc="choose(false)"
+        :persistent="persistent || disabled"
+        @keydown.esc="unset(false) && !disabled"
     >
         <v-toolbar v-if="Boolean(title)" dark :color="color" dense>
             <v-icon v-if="Boolean(icon)">{{ icon }}</v-icon>
@@ -13,8 +13,13 @@
         </v-toolbar>
         <v-card tile>
             <v-card-text>
-                <p  v-html="message" />
-                <component :is="customComponent" ref="my_component" v-if="customComponent"></component>
+                <p v-html="message" v-if="message" />
+                <component
+                    :is="customComponent"
+                    v-bind="componentProps"
+                    ref="my_component"
+                    v-if="customComponent"
+                ></component>
             </v-card-text>
             <v-card-actions>
                 <v-spacer />
@@ -22,13 +27,16 @@
                     v-if="Boolean(buttonFalseText)"
                     :color="buttonFalseColor"
                     flat
-                    @click="choose(false)"
+                    :disabled="disabled"
+                    @click="choose(false) && !disabled"
                 >{{ buttonFalseText }}</v-btn>
                 <v-btn
                     v-if="Boolean(buttonTrueText)"
                     :color="buttonTrueColor"
                     flat
+                    :disabled="disabled"
                     @click="choose(true)"
+                    :loading="disabled"
                 >{{ buttonTrueText }}</v-btn>
             </v-card-actions>
         </v-card>
@@ -75,11 +83,13 @@ export default {
         width: {
             type: Number,
             default: 350
-        }
+        },
+        componentProps: Object
     },
     data() {
         return {
-            value: false
+            value: false,
+            disabled: false
         };
     },
     methods: {
@@ -89,14 +99,22 @@ export default {
             if (this.value && this.callback) {
                 this.callback({
                     destroy: this.unset,
-                    myComponent: this.$refs.my_component
-                })
+                    myComponent: this.$refs.my_component,
+                    busy: this.busy,
+                    relax: this.relax,
+                });
             } else {
                 this.unset();
             }
         },
         unset() {
             this.$destroy();
+        },
+        busy() {
+            this.disabled = true;
+        },
+        relax() {
+            this.disabled = false;
         },
         change(res) {
             this.unset();

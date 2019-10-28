@@ -1,27 +1,39 @@
 <template>
     <div>
-        <title-layout>
-            <lq-list-filter name="permission_list" class="list_filter">
-                <v-layout justify-end row align-center>
-                    <v-flex md4>
-                        <lq-v-text-field
-                            id="search"
-                            append-icon="search"
-                            placeholder="Search"
-                            single-line
-                            hide-details
-                        />
-                    </v-flex>
-                    <v-flex md2>
+        <title-layout table-name="permission_list">
+            <title-row>
+                <v-flex md4>
+                    <lq-v-text-field
+                        id="search"
+                        append-icon="search"
+                        placeholder="Search"
+                        single-line
+                        hide-details
+                    />
+                </v-flex>
+                <v-flex md4>
+                    <title-row>
                         <v-btn color="primary" :to="{name: 'permission.create'}" dark>
                             Create
                             <v-icon>add</v-icon>
                         </v-btn>
-                    </v-flex>
-                </v-layout>
-            </lq-list-filter>
+                        <v-btn color="primary" icon round dark @click.stop="downloadFile">
+                            <v-icon>file_download</v-icon>
+                        </v-btn>
+                    </title-row>
+                </v-flex>
+            </title-row>
         </title-layout>
         <v-container fluid grid-list-md>
+            <v-layout row wrap>
+                <v-flex md12>
+                    <DropZone
+                        @upload-completed="uploadComplete"
+                        file-name="file"
+                        action="/permission/upload"
+                    />
+                </v-flex>
+            </v-layout>
             <v-layout>
                 <v-flex sm12>
                     <lq-v-data-table
@@ -54,8 +66,11 @@
     </div>
 </template>
 <script>
+import DropZone from '../../../components/Vuetify/DropZone';
+const FileDownload = require('js-file-download');
 export default {
     name: 'permission.list.page',
+    components: { DropZone },
     data() {
         return {
             headers: [
@@ -75,6 +90,18 @@ export default {
                 { text: 'Action', value: 'permissions.action', align: 'right' }
             ]
         };
+    },
+    methods: {
+        uploadComplete() {
+            console.log('I am here and completed.');
+        },
+        downloadFile(e) {
+            this.$axios('/permission?export=excel', {
+                responseType: 'arraybuffer',
+            }).then(response => {
+                FileDownload(response, 'permissions.xlsx');
+            });
+        }
     }
 };
 </script>

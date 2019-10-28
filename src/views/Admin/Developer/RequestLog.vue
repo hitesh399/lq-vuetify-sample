@@ -61,7 +61,7 @@
 import RequestLogPopUp from './RequestLogPopUp';
 
 export default {
-    name: 'permission.list.page',
+    name: 'request.log.list.page',
     components: { RequestLogPopUp },
     data() {
         return {

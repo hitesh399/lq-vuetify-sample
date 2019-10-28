@@ -11,6 +11,7 @@ import role from '@/views/Admin/Role/routes'
 import config from '@/views/Admin/Config/routes'
 import myprofile from '@/views/Admin/Myprofile/routes'
 import notificationTemplate from '@/views/Admin/NotificationTemplate/routes'
+import addressRoute from '@/views/Admin/UserAddress/routes'
 
 const portal = require('@/utils/portal-helper');
 const currentPortal = portal.currentPortal;
@@ -34,6 +35,7 @@ export default new Router({
     },
     dashboard,
     adminUser,
+    addressRoute,
     notificationTemplate,
     role,
     config,

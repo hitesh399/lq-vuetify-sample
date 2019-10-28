@@ -1,25 +1,25 @@
 <template>
     <div>
-        <title-layout>
-            <lq-list-filter name="role_list" class="list_filter">
-                <v-layout justify-end row>
-                    <v-flex sm6>
-                        <lq-v-text-field
-                            id="search"
-                            append-icon="search"
-                            placeholder="Search"
-                            single-line
-                            hide-details
-                        />
-                    </v-flex>
-                    <v-flex md2 v-if="isDeveloper">
+        <title-layout table-name="role_list">
+            <title-row>
+                <v-flex sm6>
+                    <lq-v-text-field
+                        id="search"
+                        append-icon="search"
+                        placeholder="Search"
+                        single-line
+                        hide-details
+                    />
+                </v-flex>
+                <v-flex md3 v-if="isDeveloper">
+                    <title-row>
                         <v-btn color="primary" :to="{name: 'role.create'}" dark>
                             Create
                             <v-icon>add</v-icon>
                         </v-btn>
-                    </v-flex>
-                </v-layout>
-            </lq-list-filter>
+                    </title-row>
+                </v-flex>
+            </title-row>
         </title-layout>
         <v-container fluid grid-list-md>
             <v-layout>

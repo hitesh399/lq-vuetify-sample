@@ -11,10 +11,10 @@
                             placeholder="Created At Range"
                         />
                     </v-flex>
-                    <v-flex md4 sm4 xs12>
+                    <v-flex md3 sm4 xs12>
                         <lq-v-text-field id="search" label="Keyword Search" append-icon="search" placeholder="Search" />
                     </v-flex>
-                    <v-flex md4 sm4 xs12>
+                    <v-flex md5 sm4 xs12>
                         <title-row>
                             <lq-filter-btn tag="v-btn" color="info">
                                 <v-icon>filter_list</v-icon>Filter
@@ -81,6 +81,14 @@
                                         v-if="can('admin.admin-user.edit')"
                                     >
                                         <v-icon dark>edit</v-icon>
+                                    </v-btn>
+                                    <v-btn
+                                        :to="{name: 'user-address.list', params: {id: item.id}}"
+                                        class="v-btn--simple"
+                                        color="success"
+                                        icon
+                                    >
+                                        <v-icon dark>account_balance</v-icon>
                                     </v-btn>
                                     <lq-v-delete-data-table-item
                                         :item="item"

@@ -3,3 +3,28 @@
 .v-datatable .v-btn .v-btn__content .v-icon {
   color: initial;
 }
+.backdrop {
+  background: rgba(0,0,0, 0.4);
+}
+.theme--light.v-btn {
+  color: rgba(0,0,0,.87) !important;
+}
+.dropzone {
+  border: 3px;
+  border-color: #ccc;
+  border-style: dashed;
+  position: relative;
+  min-height: 100px;
+  padding: 17px;
+  text-align: center;
+}
+.drop-zone-message {
+  text-align: center;
+  height: 24px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
