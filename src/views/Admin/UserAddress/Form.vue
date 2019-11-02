@@ -86,7 +86,8 @@ export default {
                     presence: true,
                     file: {
                         required: true,
-                        acceptedFiles: 'image/*'
+                        acceptedFiles: 'image/*',
+                        maxFileSize: 1
                     }
                 }
             },
@@ -115,6 +116,7 @@ export default {
     },
     methods: {
         submit(user_id) {
+            console.log('I am sdjsjgsjhfh', user_id, this.$refs._form.name)
             return this.$refs._form.submit({ user_id }, false);
         }
     }

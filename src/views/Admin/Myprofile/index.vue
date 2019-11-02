@@ -8,17 +8,18 @@
                             :src="$helper.getProp(authProfile, 'profile_image.path', defaultProfileImage)"
                             :alt="$helper.getProp(authProfile, 'name')"
                         />
-                        <span style="position: absolute;top: 0;right: 10px;">
+                        <div style="position: absolute;top: 0;right: 10px;">
                             <image-uploader
                                 file-name="profileImage"
                                 @image-uploaded="whenImageUploaded"
+                                :thumb="{ width: 200, height: 200 }"
                                 action="/my-profile/profile-photo"
                             >
                                 <template v-slot:default="{openWindow}">
                                     <v-icon class="small-icon" @click.stop="openWindow()">camera_alt</v-icon>
                                 </template>
                             </image-uploader>
-                        </span>
+                        </div>
                     </v-avatar>
                     <v-card-text class="text-xs-center">
                         <h6 class="category text-gray font-weight-thin mb-3">CEO / CO-FOUNDER</h6>
@@ -53,10 +54,8 @@
     </v-container>
 </template>
 <script>
-import ProfileForm from './Form';
 export default {
     name: 'admin.profile',
-    components: { ProfileForm },
     methods: {
         whenImageUploaded: function(response) {
             this.$store.commit('profile/update', {

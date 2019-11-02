@@ -36,7 +36,7 @@ export default {
                         props: {
                             uploadUrl: this.action,
                             flexProps: { md2: true, sm2: true, xs12: true },
-                            showSelector: false,
+                            allwaysShowSelector: false,
                             multiple: this.multiple,
                             id: this.fileName,
                             itemClass: ['dropzone-item'],

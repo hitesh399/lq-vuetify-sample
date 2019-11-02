@@ -21,11 +21,11 @@ export default Vue.extend({
                 file: {
                     message: {
                         acceptedFiles: '^Please select only image.',
-                        maxFileSize: '^Image size should be less than 5 MB.'
+                        maxFileSize: '^Image size should be less than 1 MB.'
                     },
                     acceptedFiles: 'image/*',
-                    maxFileSize: 5,
-                    minImageDimensions: [600, 600]
+                    maxFileSize: 1, //MB
+                    minImageDimensions: this.thumb
                 }
             },
             requesting: false,
@@ -33,7 +33,6 @@ export default Vue.extend({
         }
     },
     render(h) {
-        // console.log('rules', this.rules)
         return h(
             'lq-single-upload-file',
             {
@@ -41,7 +40,8 @@ export default Vue.extend({
                     id: this.fileName,
                     rules: this.rules,
                     thumb: this.thumb,
-                    otherData: this.otherData
+                    otherData: this.otherData,
+                   
                 },
                 attrs: {
                     hideDetails: true,
@@ -49,6 +49,7 @@ export default Vue.extend({
                     layoutTag: 'span',
                     rotateRightIcon: 'rotate_right',
                     rotateLeftIcon: 'rotate_left',
+                    allwaysShowSelector: true,
                     ...this.$attrs
                 },
                 on: {

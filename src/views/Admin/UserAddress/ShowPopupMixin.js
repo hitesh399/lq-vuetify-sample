@@ -19,11 +19,12 @@ export default {
                     busy();
                     myComponent
                         .submit(parseInt(this.$route.params.id))
-                        .then(() => {
+                        .then((res) => {
                             destroy();
                             this.$lqTable.refresh('user_address', true);
                         })
-                        .catch(() => relax());
+                        
+                    .catch(() => relax());
                 }
             );
         }
