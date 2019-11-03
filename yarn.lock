@@ -6261,10 +6261,10 @@ lq-v-data-table@^0.1.11:
     core-js "^2.6.5"
     vue "^2.6.10"
 
-lq-v-file@^0.1.39:
-  version "0.1.39"
-  resolved "https://registry.yarnpkg.com/lq-v-file/-/lq-v-file-0.1.39.tgz#b71ffb40df33426330261e3d472d8a9ab8a98916"
-  integrity sha512-OUxr9aKm9lrAy8cgJxhXIS9+5jjiUuzz9MWWOYncYKWwr9L9pyl4oh7je7QKnd+LbcFH55J+VNz5YimR3S8iLA==
+lq-v-file@^0.1.42:
+  version "0.1.42"
+  resolved "https://registry.yarnpkg.com/lq-v-file/-/lq-v-file-0.1.42.tgz#112d51fcdfa7037b2ba2631ec49b3b8c5be8d0c9"
+  integrity sha512-kcCT/LqYnKnYj8ArW5ZfOBJBSmYsCNeOhhotXF/yZC6sfF5tAHMnH7uyQA+GyblvPoeT3sXrheh1xM2lnas06Q==
   dependencies:
     vue-croppie "^2.0.1"
 
